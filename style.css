@@ -26,6 +26,20 @@
   height: 300px;
 }
 
+.puzzle-rows-container {
+  border: black solid 2px;
+  height: 50px;
+  width: 90%;
+}
+
+.puzzle-row {
+  border: solid black 2px;
+  height: 10px;
+  width: 100px;
+}
+
+
+
 .guess-container {
   border: solid blue 2px;
   height: 75px;
