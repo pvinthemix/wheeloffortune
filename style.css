@@ -31,7 +31,7 @@
   justify-content: space-evenly;
   align-items: center;
   border: solid purple 2px;
-  height: 300px;
+  height: 200px;
   width: 50%;
 }
 
@@ -41,4 +41,9 @@
   border: solid orange 2px;
   height: 150px;
   width: 150px;
+}
+
+.current-spin-value-container {
+  border: solid black 2px;
+  width: 50%
 }
