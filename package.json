@@ -1,0 +1,24 @@
+{
+  "name": "wheeloffortune",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvinthemix/wheeloffortune.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pvinthemix/wheeloffortune/issues"
+  },
+  "homepage": "https://github.com/pvinthemix/wheeloffortune#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "mocha": "^5.2.0"
+  }
+}
