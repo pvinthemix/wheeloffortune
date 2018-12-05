@@ -4,75 +4,116 @@
 }
 
 .top-nav-container {
-  display: flex;
   align-items: center;
-  justify-content: space-evenly;
   border: solid black 2px;
+  display: flex;
+  justify-content: space-evenly;
   height: 50px;
 }
 
 .new-game-btn,
 .quit-game-btn {
-  width: 150px;
+  border-radius: 10px;
   height: 25px;
+  width: 150px;
+}
+
+.puzzle-container {
+  align-items: center;
+  /*background-image: url("images/golden-stage-bg.png");*/
+  border: solid green 2px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  justify-content: center;
+}
+
+.puzzle-category-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.puzzle-rows-container {
+  background-color: grey;
+  border: black solid 2px;
+  margin: 10px;
+}
+
+.puzzle-row {
+  border: solid black 2px;
+  height: 75px;
+}
+
+.puzzle-board-row-one,
+.puzzle-board-row-two,
+.puzzle-board-row-three {
+  display: flex;
+  justify-content: center;
+  margin: 7px;
+}
+
+.puzzle-box {
+  background-color: green;
+  border: black solid 2px;
+  height: 72px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 50px;
+}
+
+.guess-container {
+  align-items: center;
+  border: solid blue 2px;
+  display: flex;
+  height: 75px;
+  justify-content: space-around;
+}
+
+.buy-vowel-btn,
+.solve-puzzle-btn {
+  border-radius: 10px;
+  height: 25px;
+  width: 150px;
+}
+
+.submit-btn {
+  height: 25px;
+  width: 100px;
 }
 
 .playerscore-wheel-container {
   display: flex;
 }
 
-.puzzle-container {
-  border: solid green 2px;
-  height: 300px;
-}
-
-.puzzle-rows-container {
-  border: black solid 2px;
-  height: 50px;
-  width: 90%;
-}
-
-.puzzle-row {
-  border: solid black 2px;
-  height: 10px;
-  width: 100px;
-}
-
-
-
-.guess-container {
-  border: solid blue 2px;
-  height: 75px;
-}
-
 .players-score-container {
-  display: flex;
-  justify-content: space-evenly;
   align-items: center;
   border: solid purple 2px;
+  display: flex;
   height: 200px;
+  justify-content: space-evenly;
   width: 50%;
 }
 
 .player-one-container,
 .player-two-container,
 .player-three-container {
-  text-align: center;
   border: solid orange 2px;
+  text-align: center;
   height: 150px;
   width: 150px;
 }
 
 .current-spin-value-container {
   border: solid black 2px;
+  text-align: center;
   width: 50%;
 }
 
 .wheel-container {
   border: solid yellow 2px;
-  width: 50%;
 }
 
 .wheel-img {
   height: 200px;
+  padding: 15px;
 }
