@@ -1,5 +1,6 @@
 .main {
   display: grid;
+  width: 100%;
 }
 
 .top-nav-container {
@@ -14,6 +15,10 @@
 .quit-game-btn {
   width: 150px;
   height: 25px;
+}
+
+.playerscore-wheel-container {
+  display: flex;
 }
 
 .puzzle-container {
@@ -38,6 +43,7 @@
 .player-one-container,
 .player-two-container,
 .player-three-container {
+  text-align: center;
   border: solid orange 2px;
   height: 150px;
   width: 150px;
@@ -45,5 +51,14 @@
 
 .current-spin-value-container {
   border: solid black 2px;
-  width: 50%
+  width: 50%;
+}
+
+.wheel-container {
+  border: solid yellow 2px;
+  width: 50%;
+}
+
+.wheel-img {
+  height: 200px;
 }
