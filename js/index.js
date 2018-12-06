@@ -4,7 +4,7 @@ const player1 = document.querySelector('.player1-name-input');
 const player2 = document.querySelector('.player2-name-input');
 const player3 = document.querySelector('.player3-name-input');
 const startGameButton = document.querySelector('.start-button');
-const startScreen = document.querySelector('.start-screen');
+var startScreen = document.querySelector('.start-screen');
 
 startGameButton.addEventListener('click', startGame);
 

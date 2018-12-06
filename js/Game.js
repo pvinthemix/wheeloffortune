@@ -5,6 +5,8 @@ class Game {
     this.fivePuzzles = null;
     this.wheel = [];
     this.boundRound = false;
+    this.playerIndex = 0;
+    // this.turn = this.player[this.playerIndex];
   }
 
   startGame() {
@@ -15,8 +17,13 @@ class Game {
 
   }
 
-  changePlayer() {
+  changeTurn() {
+    this.turn++
+  }
 
+  changePlayer() {
+    this.playerIndex++;
+    this.changeTurn();
   }
 
   generateFivePuzzles() {
