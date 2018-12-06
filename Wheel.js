@@ -4,3 +4,7 @@ class Wheel {
     this.currentSpinValue = null;
   }
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = Wheel;
+}
