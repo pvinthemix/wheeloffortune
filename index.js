@@ -1,0 +1,1 @@
+// start with event listner for start button that triggers the start of the game, dommanipulation method for putting names on the screen, generates the puzzle and populates it on the screen. Intialize game function.
