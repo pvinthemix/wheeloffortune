@@ -25,7 +25,15 @@
 .quit-game-btn {
   border-radius: 10px;
   height: 25px;
+  outline: none;
   width: 150px;
+}
+
+.new-game-btn:hover,
+.quit-game-btn:hover {
+  background-color: orange;
+  cursor: pointer;
+  outline: none;
 }
 
 .puzzle-container {
@@ -110,6 +118,14 @@ form {
   width: 100px;
 }
 
+.submit-btn:hover,
+.buy-vowel-btn:hover,
+.solve-puzzle-btn:hover {
+  background-color: orange;
+  cursor: pointer;
+  outline: none;
+}
+
 .playerscore-wheel-container {
   display: flex;
 }
@@ -125,26 +141,42 @@ form {
 .player-one-container,
 .player-two-container,
 .player-three-container {
+  background-color: white;
   border: solid black 2px;
-  text-align: center;
   color: #5c128c;
   font-size: 18px;
   height: 150px;
   margin: 7px;
   padding: 7px;
+  text-align: center;
   width: 150px;
+}
+
+.player-text {
+  font-size: 14px;
+  color: black;
+  line-height: 50%;
+}
+
+.person-avatar-img {
+  padding-top: 10px;
+  height: 75px;
 }
 
 .current-spin-value-container {
   text-align: center;
-  width: 50%;
+  width: 30%;
 }
 
-.wheel-container {
-  
-}
-
-.wheel-img {
-  height: 200px;
-  padding: 15px 0 0 70px;
+.wheel-btn {
+  background-image: url("images/Wheel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 300;
+  height: 250px;
+  outline: none;
+  width: 470px;
 }
