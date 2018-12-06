@@ -168,15 +168,33 @@ form {
   width: 30%;
 }
 
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  height: 250px;
+  width: 470px;
+}
+
 .wheel-btn {
   background-image: url("images/Wheel.png");
   background-position: center;
   background-repeat: no-repeat;
   border: none;
+  border-radius: 50%;
   color: #f0f0f0;
   font-size: 18px;
   font-weight: 300;
   height: 250px;
   outline: none;
-  width: 470px;
+  width: 250px;
+  -webkit-animation: rotation 15s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
 }
