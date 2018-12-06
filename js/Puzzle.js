@@ -1,10 +1,11 @@
 class Puzzle {
   constructor() {
-    this.currentPuzzle = [];
+    this.currentPuzzle = this.generatePuzzle();
     this.puzzleCompleted = false;
   }
 
   generatePuzzle() {
+    //Function that 
 
   }
 

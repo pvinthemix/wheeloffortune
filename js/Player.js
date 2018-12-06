@@ -1,5 +1,5 @@
 class Player() {
-  constructor(name, bankAccount, wallet) {
+  constructor(name) {
     this.name = name;
     this.turn = false;
     this.bankAccount = 0;
