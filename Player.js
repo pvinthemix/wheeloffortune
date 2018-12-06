@@ -20,6 +20,8 @@ class Player() {
   spinWheel() {
 
   }
+}
 
-
+if (typeof module !== 'undefined') {
+  module.exports = Player;
 }

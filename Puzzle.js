@@ -15,5 +15,8 @@ class Puzzle {
   checkAnswer() {
 
   }
+}
 
+if (typeof module !== 'undefined') {
+  module.exports = Puzzle;
 }
