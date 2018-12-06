@@ -1,6 +1,6 @@
 class Game {
-  constructor() {
-    this.players = [];
+  constructor(player1, player2, player3) {
+    this.players = this.createPlayers(player1, player2, player3);
     this.round =  1;
     this.fivePuzzles = null;
     this.wheel = [];
@@ -29,11 +29,12 @@ class Game {
 
   }
 
-  createPlayers() {
-    const player1 = new Player();
-    const player2 = new Player("player2");
-    const player3 = new Player("player3");
-    return [player1, player2, player3];
+  createPlayers(player1, player2, player3) {
+    const playerOne = new Player(player1);
+    const playerTwo = new Player(player2);
+    const playerThree = new Player(player3);
+    return [playerOne, playerTwo, playerThree];
+
   }
 }
 

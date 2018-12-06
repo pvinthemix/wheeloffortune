@@ -3,6 +3,9 @@ class BonusWheel extends Wheel {
     super();
     this.bonusPlayer = null;
     this.bonusWheelValue = null;
-
   }
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = BonusWheel;
 }

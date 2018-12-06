@@ -5,7 +5,7 @@ class Puzzle {
   }
 
   generatePuzzle() {
-    //Function that 
+
 
   }
 
