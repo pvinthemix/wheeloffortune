@@ -1,8 +1,9 @@
 class Player() {
   constructor(name, bankAccount, wallet) {
     this.name = name;
-    this.bankAccount = bankAccount;
-    this.wallet = wallet;
+    this.turn = false;
+    this.bankAccount = 0;
+    this.wallet = 0;
   }
 
   quessLetter(){
