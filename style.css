@@ -1,3 +1,9 @@
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
 .main {
   display: grid;
   width: 100%;
@@ -5,23 +11,38 @@
 
 .top-nav-container {
   align-items: center;
-  border: solid black 2px;
+  background-color: #5c128c;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
+  border-top: solid black 2px;
   display: flex;
   justify-content: space-evenly;
-  height: 50px;
+  height: 40px;
+  padding: 5px;
 }
 
 .new-game-btn,
 .quit-game-btn {
   border-radius: 10px;
   height: 25px;
+  outline: none;
   width: 150px;
+}
+
+.new-game-btn:hover,
+.quit-game-btn:hover {
+  background-color: orange;
+  cursor: pointer;
+  outline: none;
 }
 
 .puzzle-container {
   align-items: center;
-  /*background-image: url("images/golden-stage-bg.png");*/
-  border: solid green 2px;
+  background-image: url("images/WOF_bg.jpg");
+  background-size: 59%;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
+  color: orange;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -29,18 +50,17 @@
 }
 
 .puzzle-category-name {
-  font-size: 25px;
-  font-weight: bold;
+  font-family: 'Bungee', cursive;
+  font-size: 39px;
 }
 
 .puzzle-rows-container {
-  background-color: grey;
-  border: black solid 2px;
+  background-color: #CED1D0;
+  border: black solid 5px;
   margin: 10px;
 }
 
 .puzzle-row {
-  border: solid black 2px;
   height: 75px;
 }
 
@@ -53,7 +73,7 @@
 }
 
 .puzzle-box {
-  background-color: green;
+  background-color: #289477;
   border: black solid 2px;
   height: 72px;
   margin-left: 5px;
@@ -63,10 +83,23 @@
 
 .guess-container {
   align-items: center;
-  border: solid blue 2px;
+  background-color: black;
+  border: solid black 2px;
   display: flex;
-  height: 75px;
+  height: 45px;
   justify-content: space-around;
+}
+
+form {
+  color: white;
+  font-size: 20px;
+}
+
+.letter-guess-input {
+  height: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 150px;
 }
 
 .buy-vowel-btn,
@@ -77,8 +110,20 @@
 }
 
 .submit-btn {
-  height: 25px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 26.2px;
+  margin: -5.4px;
   width: 100px;
+}
+
+.submit-btn:hover,
+.buy-vowel-btn:hover,
+.solve-puzzle-btn:hover {
+  background-color: orange;
+  cursor: pointer;
+  outline: none;
 }
 
 .playerscore-wheel-container {
@@ -87,9 +132,8 @@
 
 .players-score-container {
   align-items: center;
-  border: solid purple 2px;
   display: flex;
-  height: 200px;
+  height: 225px;
   justify-content: space-evenly;
   width: 50%;
 }
@@ -97,23 +141,42 @@
 .player-one-container,
 .player-two-container,
 .player-three-container {
-  border: solid orange 2px;
-  text-align: center;
+  background-color: white;
+  border: solid black 2px;
+  color: #5c128c;
+  font-size: 18px;
   height: 150px;
+  margin: 7px;
+  padding: 7px;
+  text-align: center;
   width: 150px;
 }
 
+.player-text {
+  font-size: 14px;
+  color: black;
+  line-height: 50%;
+}
+
+.person-avatar-img {
+  padding-top: 10px;
+  height: 75px;
+}
+
 .current-spin-value-container {
-  border: solid black 2px;
   text-align: center;
-  width: 50%;
+  width: 30%;
 }
 
-.wheel-container {
-  border: solid yellow 2px;
-}
-
-.wheel-img {
-  height: 200px;
-  padding: 15px;
+.wheel-btn {
+  background-image: url("images/Wheel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 300;
+  height: 250px;
+  outline: none;
+  width: 470px;
 }
