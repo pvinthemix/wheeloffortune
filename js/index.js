@@ -13,4 +13,15 @@ let game;
 function startGame() {
   game = new Game(player1.value, player2.value, player3.value);
   startScreen.classList.add('hidden');
+  populatePlayerNames()
+}
+
+const player1Name = document.querySelector('.player1-name');
+const player2Name = document.querySelector('.player2-name');
+const player3Name = document.querySelector('.player3-name');
+
+function populatePlayerNames() {
+  player1Name.innerText = player1.value;
+  player2Name.innerText = player2.value;
+  player3Name.innerText = player3.value;
 }
