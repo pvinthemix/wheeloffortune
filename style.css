@@ -133,8 +133,8 @@ form {
 .players-score-container {
   align-items: center;
   display: flex;
-  height: 225px;
   justify-content: space-evenly;
+  margin: 15px;
   width: 50%;
 }
 
@@ -164,14 +164,24 @@ form {
 }
 
 .current-spin-value-container {
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 30%;
 }
 
+.current-spin-value {
+  font-size: 55px;
+  margin: 19px;
+}
+
 .wheel-container {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 250px;
+  margin-top: 15px;
   width: 470px;
 }
 
@@ -182,6 +192,7 @@ form {
   border: none;
   border-radius: 50%;
   color: #f0f0f0;
+  cursor: pointer;
   font-size: 18px;
   font-weight: 300;
   height: 250px;
