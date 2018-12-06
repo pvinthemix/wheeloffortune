@@ -163,6 +163,10 @@ form {
   height: 75px;
 }
 
+.dollar-amt-text {
+  color: green;
+}
+
 .current-spin-value-container {
   align-items: center;
   display: flex;
@@ -199,6 +203,10 @@ form {
   outline: none;
   width: 250px;
   -webkit-animation: rotation 15s infinite linear;
+}
+
+.wheel-btn:hover {
+  color: #5c128c;
 }
 
 @-webkit-keyframes rotation {
