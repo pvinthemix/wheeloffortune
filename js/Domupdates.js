@@ -1,45 +1,40 @@
-// start with event listner for start button that triggers the start of the game, dommanipulation method for putting names on the screen, generates the puzzle and populates it on the screen. Intialize game function.
 
-const player1 = document.querySelector('.player1-name-input');
-const player2 = document.querySelector('.player2-name-input');
-const player3 = document.querySelector('.player3-name-input');
-const startGameButton = document.querySelector('.start-button');
-const startScreen = document.querySelector('.start-screen');
-const player1Name = document.querySelector('.player1-name');
-const player2Name = document.querySelector('.player2-name');
-const player3Name = document.querySelector('.player3-name');
-
-startGameButton.addEventListener('click', startGame);
-
+document.querySelector('.new-game-btn').addEventListener('click', resetGame); 
+document.querySelector('.wheel-btn').addEventListener('click', showSpinValue);
+const spinValue = document.querySelector('.current-spin-value');
 let game;
 let puzzle;
 
-function startGame() {
-  game = new Game(player1.value, player2.value, player3.value);
-  startScreen.classList.add('hidden');
-  populatePlayerNames()
-}
+let domUpdates = {
 
-const resetGameBtn = document.querySelector('.new-game-btn');
-resetGameBtn.addEventListener('click', resetGame);
+  startGame() {
+    const startScreen = document.querySelector('.start-screen');
+    startScreen.classList.add('hidden');
+    populatePlayerNames()
+  },
+  
+  resetGame() {
 
-function resetGame() {
+  },
+  
+  populatePlayerNames() {
+    const player1Name = document.querySelector('.player1-name');
+    const player2Name = document.querySelector('.player2-name');
+    const player3Name = document.querySelector('.player3-name');
+    const player1 = document.querySelector('.player1-name-input');
+    const player2 = document.querySelector('.player2-name-input');
+    const player3 = document.querySelector('.player3-name-input');
+    player1Name.innerText = player1.value;
+    player2Name.innerText = player2.value;
+    player3Name.innerText = player3.value;
+  },
 
-}
 
-function populatePlayerNames() {
-  player1Name.innerText = player1.value;
-  player2Name.innerText = player2.value;
-  player3Name.innerText = player3.value;
-}
+  showSpinValue() {
+    spinValue.innerText = 10;
+  },
 
-const wheelButton = document.querySelector('.wheel-btn');
-wheelButton.addEventListener('click', showSpinValue);
-const spinValue = document.querySelector('.current-spin-value');
-
-function showSpinValue() {
-  spinValue.innerText = 10;
-}
+};
 
 const guessLetterInput = document.querySelector('.letter-guess-input');
 const letterGuessSubmitButton = document.querySelector('.letter-guess-submit-btn');
@@ -108,4 +103,4 @@ function showLetterGuessed(e) {
   } else if(guessLetterInput.value.toLowerCase() === "q") {
     letterQ.classList.add('grey-font');
   }
-}
+};
