@@ -9,11 +9,13 @@ var startScreen = document.querySelector('.start-screen');
 startGameButton.addEventListener('click', startGame);
 
 let game;
+let puzzle;
 
 function startGame() {
   game = new Game(player1.value, player2.value, player3.value);
   startScreen.classList.add('hidden');
   populatePlayerNames()
+  puzzle = new Puzzle()
 }
 
 const player1Name = document.querySelector('.player1-name');
