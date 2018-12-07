@@ -24,7 +24,7 @@ const resetGameBtn = document.querySelector('.new-game-btn');
 resetGameBtn.addEventListener('click', resetGame);
 
 function resetGame() {
-  
+
 }
 
 function populatePlayerNames() {
@@ -56,6 +56,20 @@ const letterI = document.querySelector('.letter-i');
 const letterJ = document.querySelector('.letter-j');
 const letterK = document.querySelector('.letter-k');
 const letterL = document.querySelector('.letter-l');
+const letterM = document.querySelector('.letter-m');
+const letterN = document.querySelector('.letter-n');
+const letterO = document.querySelector('.letter-o');
+const letterP = document.querySelector('.letter-p');
+const letterQ = document.querySelector('.letter-q');
+const letterR = document.querySelector('.letter-r');
+const letterS = document.querySelector('.letter-s');
+const letterT = document.querySelector('.letter-t');
+const letterU = document.querySelector('.letter-u');
+const letterV = document.querySelector('.letter-v');
+const letterW = document.querySelector('.letter-w');
+const letterX = document.querySelector('.letter-x');
+const letterY = document.querySelector('.letter-y');
+const letterZ = document.querySelector('.letter-z');
 
 function showLetterGuessed(e) {
   e.preventDefault();
@@ -83,5 +97,15 @@ function showLetterGuessed(e) {
     letterK.classList.add('grey-font');
   } else if(guessLetterInput.value.toLowerCase() === "l") {
     letterL.classList.add('grey-font');
+  } else if(guessLetterInput.value.toLowerCase() === "m") {
+    letterM.classList.add('grey-font');
+  } else if(guessLetterInput.value.toLowerCase() === "n") {
+    letterN.classList.add('grey-font');
+  } else if(guessLetterInput.value.toLowerCase() === "o") {
+    letterO.classList.add('grey-font');
+  } else if(guessLetterInput.value.toLowerCase() === "p") {
+    letterP.classList.add('grey-font');
+  } else if(guessLetterInput.value.toLowerCase() === "q") {
+    letterQ.classList.add('grey-font');
   }
 }
