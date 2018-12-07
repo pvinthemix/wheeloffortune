@@ -14,9 +14,7 @@ class Wheel {
     var randomValue5 = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
     var randomValue6 = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
     return [randomValue1, randomValue2, randomValue3, randomValue4, randomValue5, randomValue6];
-
   }
-
 }
 
 if (typeof module !== 'undefined') {

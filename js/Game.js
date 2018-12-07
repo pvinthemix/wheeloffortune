@@ -9,6 +9,12 @@ class Game {
     // this.turn = this.player[this.playerIndex];
   }
 
+  // wheel property with 5 wheels
+  // Wheel class - method showValueOfWheel
+  // 1 random value 
+  // game.wheel.showValueOfWheel
+  // in DOM set ^ to variable and display number as innerText
+
 
   resetGame() {
 
