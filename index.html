@@ -10,11 +10,11 @@
 
  <main>
     <section class="start-screen">
-      <h2>Enter Name To Start Game</h2>
-        <input type="text" class="name-input player1-name-input">
-        <input type="text" class="name-input player2-name-input">
-        <input type="text" class="name-input player3-name-input">
-        <input class="start-button" type="submit" value="submit"></input>
+      <h2 class="start-screen-heading">$PIN 2 WIN</h2>
+        Player 1 Name:<input type="text" class="name-input player1-name-input">
+        Player 2 Name:<input type="text" class="name-input player2-name-input">
+        Player 3 Name:<input type="text" class="name-input player3-name-input">
+        <input class="start-button" type="submit" value="PLAY GAME"></input>
     </section>
 
     <nav class="top-nav-container">
@@ -70,10 +70,41 @@
         </div>
       </div>
     </section>
+    <section class="letters-guessed-container">
+      Letters Guessed: 
+      <span class="letter-a"> A</span>
+      <span class="letter-b"> B</span>
+      <span class="letter-c"> C</span>
+      <span class="letter-d"> D</span>
+      <span class="letter-e"> E</span>
+      <span class="letter-f"> F</span>
+      <span class="letter-g"> G</span>
+      <span class="letter-h"> H</span>
+      <span class="letter-i"> I</span>
+      <span class="letter-j"> J</span>
+      <span class="letter-k"> K</span>
+      <span class="letter-l"> L</span>
+      <span class="letter-m"> M</span>
+      <span class="letter-n"> N</span>
+      <span class="letter-o"> O</span>
+      <span class="letter-p"> P</span>
+      <span class="letter-q"> Q</span>
+      <span class="letter-r"> R</span>
+      <span class="letter-s"> S</span>
+      <span class="letter-t"> T</span>
+      <span class="letter-u"> U</span>
+      <span class="letter-v"> V</span>
+      <span class="letter-w"> W</span>
+      <span class="letter-x"> X</span>
+      <span class="letter-y"> Y</span>
+      <span class="letter-z"> Z</span>
+    </section>
     <section class="guess-container">
-      <form>GUESS:
+      <span class="instructions-text">INSTRUCTIONS:</span>
+      <span>SPIN WHEEL, BUY VOWEL, OR SOLVE PUZZLE</span>
+      <form>
         <input type="text" placeholder="Guess a letter" class="letter-guess-input"></input>
-        <input type="submit" value="SUBMIT" class="submit-btn"></input>
+        <input type="submit" value="SUBMIT" class="letter-guess-submit-btn"></input>
       </form>
       <button class="buy-vowel-btn">BUY A VOWEL</button>
       <button class="solve-puzzle-btn">SOLVE PUZZLE</button>
@@ -81,21 +112,21 @@
     <section class="playerscore-wheel-container">
     <article class="players-score-container">
       <div class="player-one-container">
-        <h2 class="player1-name">Player 1</h2>
+        <h2 class="player-name-text player1-name">Player 1</h2>
         <p class="player-text">Score: <span class="dollar-amt-text player1-score">$0</span></p>
         <p class="player-text">Grand Total: <span class="dollar-amt-text player1-grandtotal">$0</p>
         <br>
         <img src="images/person_avatar.png" class="person-avatar-img">
       </div>
       <div class="player-two-container">
-         <h2 class="player2-name">Player 2</h2>
+         <h2 class="player-name-text player2-name">Player 2</h2>
          <p class="player-text">Score: <span class="dollar-amt-text player2-score"> $0</span></p>
         <p class="player-text">Grand Total: <span class="dollar-amt-text player2-grandtotal">$0</p>
         <br>
         <img src="images/person_avatar.png" class="person-avatar-img">
       </div>
       <div class="player-three-container">
-         <h2 class="player3-name">Player 3</h2>
+         <h2 class="player-name-text player3-name">Player 3</h2>
          <p class="player-text">Score: <span class="dollar-amt-text player3-score"> $0</span></p>
         <p class="player-text">Grand Total: <span class="dollar-amt-text player3-grandtotal">$0</p>
         <br>
@@ -113,13 +144,13 @@
     </div>
   </section>
  </main>
- <script src="./js/Game.js"></script>
-<script src="./js/DomUpdates.js"></script>
 <script src="./js/dataset.js"></script>
+<script src="./js/Game.js"></script>
 <script src="./js/Player.js"></script>
-<script src="./js/BonusWheel.js"></script>
 <script src="./js/Puzzle.js"></script>
 <script src="./js/Wheel.js"></script>
+<script src="./js/BonusWheel.js"></script>
+<script src="./js/DomUpdates.js"></script>
 <script src="./js/index.js"></script>
 </body>
 </html>

@@ -5,6 +5,8 @@ class Puzzle {
 
     //the wheel can be a 'child' of the puzzle, with the understanding that each Round has it's own wheel
     //this.wheel = new Wheel;
+
+    // only if the wheel shares at least 1 function with the puzzle
   }
   
   generatePuzzle(round) {

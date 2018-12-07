@@ -19,7 +19,7 @@ class Player {
   }
 
   spinWheel() {
-
+    
   }
 }
 
