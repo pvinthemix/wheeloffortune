@@ -37,10 +37,10 @@ class Game {
   generateFivePuzzles() {
     const roundOne = new Puzzle(1);
     const roundTwo = new Puzzle(2);
-    // const roundThree = new Puzzle(3);
-    // const roundFour = new Puzzle(4);
-    // const roundFive = new Puzzle(5);
-    return [roundOne, roundTwo]
+    const roundThree = new Puzzle(3);
+    const roundFour = new Puzzle(4);
+    const roundBonus = new Puzzle(5);
+    return [roundOne, roundTwo, roundThree, roundFour, roundBonus]
   }
 
   createPlayers(player1, player2, player3) {

@@ -6,7 +6,7 @@ class Player {
     this.wallet = 0;
   }
 
-  quessLetter(){
+  quessLetter() {
 
   }
 
