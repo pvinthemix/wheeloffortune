@@ -1,10 +1,10 @@
 class Game {
   constructor(player1, player2, player3) {
     this.players = this.createPlayers(player1, player2, player3);
-    this.round =  1;
+    this.round = 1;
     this.fivePuzzles = this.generateFivePuzzles();
     this.wheel = this.generateWheel();
-    this.boundRound = false;
+    this.bonusRound = false;
     this.playerIndex = 0;
     // this.turn = this.player[this.playerIndex];
   }

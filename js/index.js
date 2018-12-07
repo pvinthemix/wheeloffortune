@@ -6,5 +6,7 @@ function startButton() {
   const player2 = document.querySelector('.player2-name-input');
   const player3 = document.querySelector('.player3-name-input');
   game = new Game(player1.value, player2.value, player3.value);
-  domUpdates.startGame()
+  domUpdates.startGame();
+  domUpdates.populatePlayerNames();
+  domUpdates.showPuzzleCategory();
 }

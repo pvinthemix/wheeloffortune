@@ -114,6 +114,7 @@
 .puzzle-category-name {
   font-family: 'Bungee', cursive;
   font-size: 39px;
+  letter-spacing: 3px;
 }
 
 .puzzle-rows-container {
@@ -174,6 +175,10 @@ form {
   font-size: 20px;
 }
 
+span.letter {
+  letter-spacing: 10px;
+}
+
 .letter-guess-input {
   height: 20px;
   padding-left: 5px;
@@ -186,6 +191,7 @@ form {
   border-radius: 10px;
   height: 25px;
   width: 150px;
+  outline: none;
 }
 
 .grey-font {
@@ -197,6 +203,7 @@ form {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   height: 26.2px;
+  outline: none;
   margin: -5.4px;
   width: 80px;
 }
@@ -285,6 +292,7 @@ form {
   cursor: pointer;
   font-size: 18px;
   font-weight: 300;
+  outline: none;
   height: 250px;
   width: 250px;
   -webkit-animation: rotation 15s infinite linear;
