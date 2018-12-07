@@ -4,7 +4,10 @@ const player1 = document.querySelector('.player1-name-input');
 const player2 = document.querySelector('.player2-name-input');
 const player3 = document.querySelector('.player3-name-input');
 const startGameButton = document.querySelector('.start-button');
-var startScreen = document.querySelector('.start-screen');
+const startScreen = document.querySelector('.start-screen');
+const player1Name = document.querySelector('.player1-name');
+const player2Name = document.querySelector('.player2-name');
+const player3Name = document.querySelector('.player3-name');
 
 startGameButton.addEventListener('click', startGame);
 
@@ -15,12 +18,8 @@ function startGame() {
   game = new Game(player1.value, player2.value, player3.value);
   startScreen.classList.add('hidden');
   populatePlayerNames()
-  puzzle = new Puzzle()
 }
 
-const player1Name = document.querySelector('.player1-name');
-const player2Name = document.querySelector('.player2-name');
-const player3Name = document.querySelector('.player3-name');
 
 function populatePlayerNames() {
   player1Name.innerText = player1.value;
