@@ -23,10 +23,8 @@ describe('Game', function () {
     expect(game.playerIndex).to.equal(0);
   });
 
-  // it('should be the turn of the player whos playerIndex it is', function () {
-  // var game = new Game();
-  // game.changeTurn();
-  
-  //   expect(game.playerIndex).to.equal(0);
-  // });
+   it('should be the turn of the player whose playerIndex it is', function () {
+  var game = new Game()
+    expect(game.turn).to.equal(game.players[game.playerIndex]);
+  });
 });
