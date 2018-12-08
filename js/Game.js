@@ -21,7 +21,6 @@ class Game {
   }
 
   changeTurn() {
-    debugger
     this.playerIndex++;
     if(this.playerIndex === 3) {
       this.playerIndex = 0;
