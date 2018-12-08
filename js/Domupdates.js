@@ -26,7 +26,7 @@ let domUpdates = {
   },
 
   capitalizeFirstLetter(input) {
-    let result = input.toLowerCase();
+    let result = input.trim().toLowerCase();
     return result[0].toUpperCase() + result.substring(1);
   },
 
