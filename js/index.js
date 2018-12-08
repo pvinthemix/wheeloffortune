@@ -10,3 +10,9 @@ function startButton() {
   domUpdates.populatePlayerNames();
   domUpdates.showPuzzleCategory();
 }
+
+function changeTurn() {
+  game.changeTurn(); //change from player 1 to player 2
+  game.changeTurn(); //change from player 2 to player 3
+  game.changeTurn(); //change from player 3 back to player 1
+}
