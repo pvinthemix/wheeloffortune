@@ -19,11 +19,16 @@ let domUpdates = {
     const player1 = document.querySelector('.player1-name-input');
     const player2 = document.querySelector('.player2-name-input');
     const player3 = document.querySelector('.player3-name-input');
-    player1Name.innerText = player1.value;
-    player2Name.innerText = player2.value;
-    player3Name.innerText = player3.value;
+    
+    player1Name.innerText = this.capitalizeFirstLetter(player1.value);
+    player2Name.innerText = this.capitalizeFirstLetter(player2.value);
+    player3Name.innerText = this.capitalizeFirstLetter(player3.value);
   },
 
+  capitalizeFirstLetter(input) {
+    let result = input.toLowerCase();
+    return result[0].toUpperCase() + result.substring(1);
+  },
 
   showSpinValue() {
     const spinValue = document.querySelector('.current-spin-value');
