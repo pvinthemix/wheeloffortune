@@ -4,8 +4,18 @@ const Player = require('../js/Player.js');
 
 
 describe('Player', function () {
-  var player = new Player('Lee');
   it('it should have a name', function () {
+    var player = new Player('Lee');
     expect(player.name).to.equal('Lee');
   });
+
+  it('should start with a bank account of zero', function() {
+    var player = new Player('Lee');
+    expect(player.bankAccount).to.equal(0)
+  })
+
+  it('should start off with a wallet of zero', function() {
+    var player = new Player('Lee');
+    expect(player.wallet).to.equal(0)
+  })
 });
