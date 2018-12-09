@@ -1,14 +1,14 @@
 class Wheel {
-  constructor() {
+  constructor(currentSpinValue) {
     this.spinValues = this.generateSpinValues();
-    this.currentSpinValue = null;
+    this.currentSpinValue = currentSpinValue;
   }
 
   generateSpinValues() {
-    var wheelValues = data.wheel;
-    var newWheelValues = [];
+    let wheelValues = data.wheel;
+    let newWheelValues = [];
     for (let i = 0; i < 6; i++) {
-      var randomSpinValue = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
+      let randomSpinValue = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
       newWheelValues.push(randomSpinValue)
     }
     return newWheelValues;

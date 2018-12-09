@@ -6,7 +6,7 @@ class Game {
     this.wheel = this.generateWheel();
     this.bonusRound = false;
     this.playerIndex = 0;
-    // this.turn = this.player[this.playerIndex];
+    this.turn = this.players[this.playerIndex];
   }
 
   // wheel property with 5 wheels
@@ -21,7 +21,11 @@ class Game {
   }
 
   changeTurn() {
-    this.turn++
+    this.playerIndex++;
+    if(this.playerIndex === 3) {
+      this.playerIndex = 0;
+    }
+    this.turn = this.players[this.playerIndex];
   }
 
   changePlayer() {
