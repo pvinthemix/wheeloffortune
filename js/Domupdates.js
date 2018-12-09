@@ -32,7 +32,8 @@ let domUpdates = {
 
   showSpinValue() {
     const spinValue = document.querySelector('.current-spin-value');
-    spinValue.innerText = 10;
+    const randomIndex = Math.floor(Math.random() * 6);
+    spinValue.innerText = game.wheel[0].spinValues[randomIndex];
   },
 
   showPuzzleCategory() {
