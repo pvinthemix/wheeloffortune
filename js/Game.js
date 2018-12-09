@@ -47,7 +47,6 @@ class Game {
     const playerTwo = new Player(player2);
     const playerThree = new Player(player3);
     return [playerOne, playerTwo, playerThree];
-
   }
 }
 

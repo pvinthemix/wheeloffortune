@@ -83,12 +83,12 @@ describe('Game', function () {
   it('should generate 5 new random puzzles upon invocation', function () {
     let game = new Game();
     game.generateFivePuzzles();
-    expect(game.fivePuzzles.length).to.deep.equal(5);
+    expect(game.fivePuzzles.length).to.equal(5);
   });
 
   it('should generate 3 new players upon invocation', function () {
     let game = new Game();
     game.createPlayers();
-    expect(game.players.length).to.deep.equal(3);
+    expect(game.players.length).to.equal(3);
   });
 });
