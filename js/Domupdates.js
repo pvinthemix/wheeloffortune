@@ -11,6 +11,21 @@ let domUpdates = {
   resetGame() {
 
   },
+
+  buyVowel() {
+    const buyVowelScreen = document.querySelector('.buyvowel-screen');
+    const guessVowelBtn = document.querySelector('.guess-vowel-btn');
+    guessVowelBtn.addEventListener('click', () => {
+      event.preventDefault();
+      buyVowelScreen.classList.add('hidden')
+    })
+    buyVowelScreen.classList.remove('hidden');
+  },
+
+  // solvePuzzle() {
+  //   let inGameSolvePuzzleBtn = document.querySelector('.solve-puzzle-btn');
+  //   let popupSolvePuzzleBtn = document.querySelector('.solvepuzzle-btn');
+  // }
   
   populatePlayerNames() {
     const player1Name = document.querySelector('.player1-name');
@@ -42,6 +57,7 @@ let domUpdates = {
   },
 
   showLetterGuessed(e) {
+     //for guess a letter input box, can't be a vowel
     const guessLetterInput = document.querySelector('.letter-guess-input');
     const letterA = document.querySelector('.letter-a');
     const letterB = document.querySelector('.letter-b');
@@ -71,6 +87,7 @@ let domUpdates = {
     const letterZ = document.querySelector('.letter-z');
 
     e.preventDefault();
+    //for guess a letter input box, can't be a vowel
     if(guessLetterInput.value.toLowerCase() === "a") {
       letterA.classList.add('grey-font');
     } else if(guessLetterInput.value.toLowerCase() === "b") {
@@ -113,4 +130,6 @@ let domUpdates = {
 document.querySelector('.new-game-btn').addEventListener('click', domUpdates.resetGame); 
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue);
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.showLetterGuessed);
+document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.buyVowel);
+
 
