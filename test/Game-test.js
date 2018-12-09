@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Game = require('../js/Game.js');
-// const spies = require('chai-spies');
-// chai.use(spies);
+const spies = require('chai-spies');
+chai.use(spies);
 
 global.Player = require('../js/Player.js');
 global.Puzzle = require('../js/Puzzle.js');
@@ -17,7 +17,7 @@ describe('Game', function () {
         name: "Terry",
         turn: false,
         bankAccount: 0,
-        wallet: 0,
+        wallet: 0
       },
       {
         name: "Jean",
@@ -68,8 +68,27 @@ describe('Game', function () {
       name: "John",
       turn: false,
       bankAccount: 0,
-      wallet: 0,  
+      wallet: 0
     }
     expect(game.turn).to.deep.equal(expectedPlayer2);
+  });
+
+  it('should generate a new wheel upon invocation', function () {
+    let game = new Game();
+    game.generateWheel();
+    expect(game.wheel).to.be.an.instanceOf(Array);
+    expect(game.wheel[0]).to.be.an.instanceOf(Wheel);
+  });
+
+  it('should generate 5 new random puzzles upon invocation', function () {
+    let game = new Game();
+    game.generateFivePuzzles();
+    expect(game.fivePuzzles.length).to.deep.equal(5);
+  });
+
+  it('should generate 3 new players upon invocation', function () {
+    let game = new Game();
+    game.createPlayers();
+    expect(game.players.length).to.deep.equal(3);
   });
 });
