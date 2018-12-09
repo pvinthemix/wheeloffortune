@@ -2,8 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 const Wheel = require('../js/Wheel.js');
 
-global.data = require('../js/dataset.js');
-
 describe('Wheel', function () {
   it('it should have a spin value of the current spin', function () {
     var wheel = new Wheel();
