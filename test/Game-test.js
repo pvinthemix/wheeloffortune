@@ -76,13 +76,19 @@ describe('Game', function () {
   it('should generate a new wheel upon invocation', function () {
     let game = new Game();
     game.generateWheel();
-    expect(game.wheel).to.deep.equal(game.wheel);
-    //change 2nd game.wheel
+    expect(game.wheel).to.be.an.instanceOf(Array);
+    expect(game.wheel[0]).to.be.an.instanceOf(Wheel);
   });
 
   it('should generate 5 new random puzzles upon invocation', function () {
     let game = new Game();
     game.generateFivePuzzles();
     expect(game.fivePuzzles.length).to.deep.equal(5);
+  });
+
+  it('should generate 3 new players upon invocation', function () {
+    let game = new Game();
+    game.createPlayers();
+    expect(game.players.length).to.deep.equal(3);
   });
 });
