@@ -22,15 +22,10 @@ class Game {
 
   changeTurn() {
     this.playerIndex++;
-    if(this.playerIndex === 3) {
+    if(this.playerIndex === this.players.length) {
       this.playerIndex = 0;
     }
     this.turn = this.players[this.playerIndex];
-  }
-
-  changePlayer() {
-    this.playerIndex++;
-    this.changeTurn();
   }
 
   generateWheel() {
