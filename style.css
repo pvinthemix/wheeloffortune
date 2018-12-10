@@ -1,32 +1,7 @@
 * {
   font-family: 'Roboto Condensed', sans-serif;
-  letter-spacing: 1.5px;
   font-weight: bold;
-}
-
-.main {
-  display: grid;
-  width: 100%;
-}
-
-.start-screen {
-  display: flex;
-  align-items: center;
-  background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: grey 5px solid;
-  border-radius: 45px;
-  flex-direction: column;
-  color: white;
-  height: 82%;
-  justify-content: center;
-  margin: 105px;
-  position: absolute;
-  top: -5%;
-  width: 82%;
-  opacity: .9;
-  z-index: 1;
+  letter-spacing: 1.5px;
 }
 
 .hidden {
@@ -37,6 +12,36 @@
   display: none;
 }
 
+.green-font {
+  color: #289477;
+}
+
+.main {
+  display: grid;
+  width: 100%;
+}
+
+/* *Modals* */
+.start-screen {
+  align-items: center;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: grey 5px solid;
+  color: white;
+  border-radius: 45px;
+  display: flex;
+  flex-direction: column;
+  height: 82%;
+  justify-content: center;
+  opacity: .9;
+  margin: 105px;
+  position: absolute;
+  top: -5%;
+  width: 82%;
+  z-index: 1;
+}
+
 .start-screen-heading {
   color: orange;
   font-size: 55px;
@@ -45,7 +50,6 @@
 
 .buyvowel-screen,
 .solvepuzzle-screen {
-  display: flex;
   align-items: center;
   background-color: black;
   background-position: center;
@@ -53,26 +57,20 @@
   border: grey 5px solid;
   border-bottom: none;
   border-radius: 45px;
-  flex-direction: column;
   color: white;
+  display: flex;
+  flex-direction: column;
   height: 17%;
   justify-content: center;
-  position: absolute;
-  top: 295px;
-  right: 37px;
-  width: 355px;
   opacity: .9;
+  position: absolute;
+  right: 37px;
+  top: 295px;
+  width: 355px;
   z-index: 10;
 }
 
-.name-input {
-  font-size: 18px;
-  height: 25px;
-  margin: 10px;
-  padding: 5px;
-  width: 150px;
-}
-
+/* *Containers* */
 .top-nav-container {
   align-items: center;
   background-color: #5c128c;
@@ -80,10 +78,20 @@
   border-right: solid black 2px;
   border-top: solid black 2px;
   display: flex;
-  justify-content: space-evenly;
   height: 40px;
-  padding: 5px;
+  justify-content: space-evenly;
   margin-bottom: -5px;
+  padding: 5px;
+}
+
+/* *Buttons* */
+.start-button {
+  background-color: #289477;
+  border: solid grey 1.5px;
+  color: white;
+  height: 35px;
+  margin: 15px;
+  width: 165px;
 }
 
 .start-button:hover {
@@ -100,33 +108,105 @@
   width: 150px;
 }
 
-.guess-vowel-btn,
-.solvepuzzle-submit-btn {
-  border-radius: 10px;
-  height: 25px;
-  outline: none;
-  width: 107px;
-}
-
-.solvepuzzle-submit-btn {
-  margin-bottom: 14px;
-}
-
-.start-button {
-  border: solid grey 1.5px;
-  margin: 15px;
-  height: 35px;
-  background-color: #289477;
-  color: white;
-  width: 165px;
-}
-
 .reset-game-btn:hover,
 .quit-game-btn:hover {
   background-color: orange;
   cursor: pointer;
 }
 
+.letter-guess-submit-btn {
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 27px;
+  margin-left: -6.4px;
+  outline: none;
+  width: 80px;
+}
+
+.letter-guess-submit-btn:hover,
+.buy-vowel-btn:hover,
+.solve-puzzle-btn:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.buy-vowel-btn,
+.solve-puzzle-btn {
+  border-radius: 10px;
+  height: 25px;
+  outline: none;
+  width: 150px;
+}
+
+.guess-vowel-btn {
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 10px;
+  height: 26px;
+  margin-left: -6.4px;
+  outline: none;
+  width: 107px;
+}
+
+.solvepuzzle-submit-btn {
+  border-radius: 10px;
+  height: 26px;
+  margin-bottom: 14px;
+  outline: none;
+  width: 256px;
+}
+
+.wheel-btn {
+  background-image: url("images/Wheel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50%;
+  color: #f0f0f0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300;
+  height: 250px;
+  outline: none;
+  width: 250px;
+  -webkit-animation: rotation 15s infinite linear;
+}
+
+.wheel-btn:hover {
+  color: black;
+}
+
+/* *Input* */
+.name-input {
+  font-size: 18px;
+  height: 25px;
+  margin: 10px;
+  padding: 5px;
+  width: 150px;
+}
+
+.letter-guess-input {
+  height: 21px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 105px;
+}
+
+.vowel-guess-input,
+.solvepuzzle-guess-input {
+  height: 20px;
+  text-align: center;
+}
+
+.solvepuzzle-guess-input {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: -10px;
+  width: 250px;
+}
+
+/* *Containers* */
 .puzzle-container {
   align-items: center;
   background-image: url("images/WOF_bg.jpg");
@@ -152,14 +232,11 @@
   margin: 10px;
 }
 
-.puzzle-row {
-  height: 75px;
-}
-
 .puzzle-board-row-one,
 .puzzle-board-row-two,
 .puzzle-board-row-three {
   display: flex;
+  height: 75px;
   justify-content: center;
   margin: 7px;
 }
@@ -174,16 +251,20 @@
 }
 
 .letters-guessed-container {
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: left;
   padding-top: 10px;
-  background-color: black;
-  color: white;
 }
 
 .letters-guessed-text {
-  margin-left: 26px;
   color: #CED1D0;
+  margin-left: 26px;
+}
+
+.instructions-text {
+  color: orange;
 }
 
 .guess-container {
@@ -196,10 +277,6 @@
   justify-content: space-around;
 }
 
-.instructions-text {
-  color: orange;
-}
-
 form {
   color: white;
   font-size: 20px;
@@ -209,57 +286,6 @@ span.letter {
   letter-spacing: 5px;
   margin-left: 5px;
   text-align: center;
-}
-
-.letter-guess-input {
-  height: 21px;
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 105px;
-}
-
-.buy-vowel-btn,
-.solve-puzzle-btn {
-  border-radius: 10px;
-  height: 25px;
-  width: 150px;
-  outline: none;
-}
-
-.solvepuzzle-submit-btn {
-  width: 256px;
-}
-
-.vowel-guess-input,
-.solvepuzzle-guess-input {
-  text-align: center;
-  height: 20px;
-}
-
-.solvepuzzle-guess-input {
-  display: block;
-  width: 250px;
-}
-
-.green-font {
-  color: #289477;
-}
-
-.letter-guess-submit-btn {
-  border-top-left-radius: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  height: 27px;
-  outline: none;
-  margin-left: -6.4px;
-  width: 80px;
-}
-
-.letter-guess-submit-btn:hover,
-.buy-vowel-btn:hover,
-.solve-puzzle-btn:hover {
-  background-color: orange;
-  cursor: pointer;
 }
 
 .playerscore-wheel-container {
@@ -298,8 +324,8 @@ span.letter {
 }
 
 .person-avatar-img {
-  border-radius: 50%;
   border-bottom: solid black 3px;
+  border-radius: 50%;
   height: 75px;
   margin-top: -20px;
 }
@@ -316,11 +342,6 @@ span.letter {
   width: 30%;
 }
 
-.current-spin-value {
-  font-size: 55px;
-  margin: 19px;
-}
-
 .wheel-container {
   align-items: center;
   display: flex;
@@ -329,29 +350,14 @@ span.letter {
   width: 470px;
 }
 
-.wheel-btn {
-  background-image: url("images/Wheel.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 50%;
-  color: #f0f0f0;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 300;
-  outline: none;
-  height: 250px;
-  width: 250px;
-  -webkit-animation: rotation 15s infinite linear;
-}
-
-.wheel-btn:hover {
-  color: black;
+.current-spin-value {
+  font-size: 55px;
+  margin: 19px;
 }
 
 .spin-text {
-  line-height: 50%;
   font-size: 12px;
+  line-height: 50%;
 }
 
 @-webkit-keyframes rotation {
