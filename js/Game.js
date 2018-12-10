@@ -28,11 +28,12 @@ class Game {
 
 
   handleConsonantGuessed() {
+    debugger
     let answerWordArray = game.fivePuzzles[0].currentPuzzle.correct_answer.split('');
     let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
     if (answerWordArray.includes(letterGuessInput)) {
       console.log("You got it!")
-      this.currentPlayer.updateCurrentPlayerScore();
+      this.currentPlayer.increaseCurrentPlayerScore();
       console.log(this.currentPlayer)
       //update DOM with that letter
       //give points value to current player
