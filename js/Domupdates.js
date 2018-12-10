@@ -31,14 +31,27 @@ let domUpdates = {
 
   },
 
-  buyVowel() {
+  popupBuyVowelScreen() {
     const buyVowelScreen = document.querySelector('.buyvowel-screen');
-    const guessVowelBtn = document.querySelector('.guess-vowel-btn');
-    guessVowelBtn.addEventListener('click', () => {
-      event.preventDefault();
-      buyVowelScreen.classList.add('hidden')
-    })
     buyVowelScreen.classList.remove('hidden');
+  },
+
+  guessVowel() {
+    event.preventDefault();
+    const buyVowelScreen = document.querySelector('.buyvowel-screen');
+    buyVowelScreen.classList.add('hidden');
+    this.handleVowelGuessed();
+  },
+
+  handleVowelGuessed() {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const guessVowelInput = document.querySelector('.vowel-guess-input').value.toLowerCase().trim();
+    if (vowels.includes(guessVowelInput)) {
+      // TODO: change UI to some message instead of alert
+      this.greyOut(guessVowelInput);
+    } else {
+      alert('PLEASE ENTER A VOWEL!!!');
+    }
   },
 
   // solvePuzzle() {
@@ -68,20 +81,7 @@ let domUpdates = {
     puzzleCategoryOutput.innerText = round1PuzzleCategory;
   },
 
-  // showLetterGuessed(e) {
-  //   e.preventDefault();
-  //   const alphabetArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  //   const alphabetObj = alphabetArray.reduce((obj, currentLetter) => {
-  //     obj[currentLetter] = document.querySelector(`.letter-${currentLetter}`);
-  //     return obj;s
-  //   }, {});
-  //   //for guess a letter input box, can't be a vowel
-  //  const guessLetterInput = document.querySelector('.letter-guess-input').value.toLowerCase().trim();
-
-  //   alphabetObj[guessLetterInput].classList.add('grey-font');
-  // },
-
-  showLetterGuessed(e) {
+  handleConsonantGuessed(e) {
     e.preventDefault();
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const guessLetterInput = document.querySelector('.letter-guess-input').value.toLowerCase().trim();
@@ -106,7 +106,8 @@ document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.qu
   // If we used ES5 syntax without binding, this would refer to the HTML button element (where it was called)
   // If we used ES6 arrow syntax, this would refer to the global window object
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue);
-document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.showLetterGuessed.bind(domUpdates));
-document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.buyVowel);
+document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
+document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
+document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 
 
