@@ -13,6 +13,7 @@ let domUpdates = {
   startScreen: document.querySelector('.start-screen'),
   buyVowelScreen: document.querySelector('.buyvowel-screen'),
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
+  guessVowelInput: document.querySelector('.vowel-guess-input'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -49,10 +50,11 @@ let domUpdates = {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
+    this.guessVowelInput.value = '';
   },
 
   handleVowelGuessed() {
-    const guessVowelInput = document.querySelector('.vowel-guess-input').value.toLowerCase().trim();
+    const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
       this.greyOut(guessVowelInput);
