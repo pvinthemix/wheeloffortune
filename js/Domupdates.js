@@ -1,43 +1,96 @@
 let game;
 let puzzle;
+let player;
 
 // domUpdates Object
 let domUpdates = {
+  // NOTE: setting up key-value pairs for querySelectors
+  player1Name: document.querySelector('.player1-name'),
+  player2Name: document.querySelector('.player2-name'),
+  player3Name: document.querySelector('.player3-name'),
+  player1Input: document.querySelector('.player1-name-input'),
+  player2Input: document.querySelector('.player2-name-input'),
+  player3Input: document.querySelector('.player3-name-input'),
+  startScreen: document.querySelector('.start-screen'),
+  buyVowelScreen: document.querySelector('.buyvowel-screen'),
+  solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
+  guessVowelInput: document.querySelector('.vowel-guess-input'),
+  vowels: ['a', 'e', 'i', 'o', 'u'],
+
   startGame() {
-    const startScreen = document.querySelector('.start-screen');
-    startScreen.classList.add('hidden');
+    this.startScreen.classList.add('hidden');
+  },
+
+  quitGame() {
+    game.quitGame();
+    this.player1Name.innerText = 'Player 1';
+    this.player2Name.innerText = 'Player 2';
+    this.player3Name.innerText = 'Player 3';
+    this.player1Input.value = '';
+    this.player2Input.value = '';
+    this.player3Input.value = '';
+    this.buyVowelScreen.classList.add('hidden');
+    this.solvePuzzleScreen.classList.add('hidden');
+    this.startScreen.classList.remove('hidden');
+    let letter = document.getElementsByClassName('letter');
+    for(let i=0; i<letter.length; i++) {
+      letter[i].classList.remove('green-font');
+    }
   },
   
   resetGame() {
-
+    game.resetGame();
+    game.round = 1;
+    game.playerIndex = 0;
+    let letter = document.getElementsByClassName('letter');
+      for(let i=0; i<letter.length; i++) {
+        letter[i].classList.remove('green-font');
+      }
+    this.showPuzzleCategory();
+    // player.bankAccount = 0;
+    // player.wallet = 0;
+    game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
+    this.showPuzzleCategory();
   },
 
-  buyVowel() {
-    const buyVowelScreen = document.querySelector('.buyvowel-screen');
-    const guessVowelBtn = document.querySelector('.guess-vowel-btn');
-    guessVowelBtn.addEventListener('click', () => {
-      event.preventDefault();
-      buyVowelScreen.classList.add('hidden')
-    })
-    buyVowelScreen.classList.remove('hidden');
+  popupBuyVowelScreen() {
+    this.solvePuzzleScreen.classList.add('hidden');
+    this.buyVowelScreen.classList.remove('hidden');
   },
 
-  // solvePuzzle() {
-  //   let inGameSolvePuzzleBtn = document.querySelector('.solve-puzzle-btn');
-  //   let popupSolvePuzzleBtn = document.querySelector('.solvepuzzle-btn');
-  // }
-  
+  popupSolvePuzzleScreen() {
+    this.buyVowelScreen.classList.add('hidden');
+    this.solvePuzzleScreen.classList.remove('hidden');
+  },
+
+  guessVowel() {
+    event.preventDefault();
+    this.buyVowelScreen.classList.add('hidden');
+    this.handleVowelGuessed();
+    this.guessVowelInput.value = '';
+  },
+
+  handleVowelGuessed() {
+    const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
+    if (this.vowels.includes(guessVowelInput)) {
+      // TODO: change UI to some message instead of alert
+      this.greyOut(guessVowelInput);
+    } else {
+      alert('PLEASE ENTER A VOWEL!!!');
+    }
+  },
+
+  guessPuzzle() {
+    event.preventDefault();
+    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
+    console.log(puzzleGuessInput);
+    this.solvePuzzleScreen.classList.add('hidden');
+  },
+
   populatePlayerNames() {
-    const player1Name = document.querySelector('.player1-name');
-    const player2Name = document.querySelector('.player2-name');
-    const player3Name = document.querySelector('.player3-name');
-    const player1 = document.querySelector('.player1-name-input');
-    const player2 = document.querySelector('.player2-name-input');
-    const player3 = document.querySelector('.player3-name-input');
-    
-    player1Name.innerText = this.capitalizeFirstLetter(player1.value);
-    player2Name.innerText = this.capitalizeFirstLetter(player2.value);
-    player3Name.innerText = this.capitalizeFirstLetter(player3.value);
+    this.player1Name.innerText = this.capitalizeFirstLetter(this.player1Input.value);
+    this.player2Name.innerText = this.capitalizeFirstLetter(this.player2Input.value);
+    this.player3Name.innerText = this.capitalizeFirstLetter(this.player3Input.value);
   },
 
   capitalizeFirstLetter(input) {
@@ -57,80 +110,33 @@ let domUpdates = {
     puzzleCategoryOutput.innerText = round1PuzzleCategory;
   },
 
-  showLetterGuessed(e) {
-     //for guess a letter input box, can't be a vowel
-    const guessLetterInput = document.querySelector('.letter-guess-input');
-    const letterA = document.querySelector('.letter-a');
-    const letterB = document.querySelector('.letter-b');
-    const letterC = document.querySelector('.letter-c');
-    const letterD = document.querySelector('.letter-d');
-    const letterE = document.querySelector('.letter-e');
-    const letterF = document.querySelector('.letter-f');
-    const letterG = document.querySelector('.letter-g');
-    const letterH = document.querySelector('.letter-h');
-    const letterI = document.querySelector('.letter-i');
-    const letterJ = document.querySelector('.letter-j');
-    const letterK = document.querySelector('.letter-k');
-    const letterL = document.querySelector('.letter-l');
-    const letterM = document.querySelector('.letter-m');
-    const letterN = document.querySelector('.letter-n');
-    const letterO = document.querySelector('.letter-o');
-    const letterP = document.querySelector('.letter-p');
-    const letterQ = document.querySelector('.letter-q');
-    const letterR = document.querySelector('.letter-r');
-    const letterS = document.querySelector('.letter-s');
-    const letterT = document.querySelector('.letter-t');
-    const letterU = document.querySelector('.letter-u');
-    const letterV = document.querySelector('.letter-v');
-    const letterW = document.querySelector('.letter-w');
-    const letterX = document.querySelector('.letter-x');
-    const letterY = document.querySelector('.letter-y');
-    const letterZ = document.querySelector('.letter-z');
-
+  handleConsonantGuessed(e) {
     e.preventDefault();
-    //for guess a letter input box, can't be a vowel
-    if(guessLetterInput.value.toLowerCase() === "a") {
-      letterA.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "b") {
-      letterB.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "c") {
-      letterC.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "d") {
-      letterD.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "e") {
-      letterE.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "f") {
-      letterF.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "g") {
-      letterG.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "h") {
-      letterH.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "i") {
-      letterI.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "j") {
-      letterJ.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "k") {
-      letterK.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "l") {
-      letterL.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "m") {
-      letterM.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "n") {
-      letterN.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "o") {
-      letterO.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "p") {
-      letterP.classList.add('grey-font');
-    } else if(guessLetterInput.value.toLowerCase() === "q") {
-      letterQ.classList.add('grey-font');
+    const guessLetterInput = document.querySelector('.letter-guess-input').value.toLowerCase().trim();
+    
+    if (this.vowels.includes(guessLetterInput)) {
+      // TODO: change UI to some message instead of alert
+      alert('PLEASE ENTER A CONSONANT!!!');
+    } else {
+      this.greyOut(guessLetterInput);
     }
+  },
+
+  greyOut(letter) {
+    document.querySelector(`.letter-${letter}`).classList.add('green-font');
   },
 };
 
 // *Event Listeners*
-document.querySelector('.new-game-btn').addEventListener('click', domUpdates.resetGame); 
+document.querySelector('.reset-game-btn').addEventListener('click', domUpdates.resetGame.bind(domUpdates));
+document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.quitGame.bind(domUpdates));
+// NOTE: 
+  // If we used ES5 syntax without binding, this would refer to the HTML button element (where it was called)
+  // If we used ES6 arrow syntax, this would refer to the global window object
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue);
-document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.showLetterGuessed);
-document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.buyVowel);
-
+document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
+document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
+document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
+document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
+document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
 

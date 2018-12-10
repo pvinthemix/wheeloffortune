@@ -10,11 +10,21 @@ class Game {
   }
 
   resetGame() {
-
+    // keeps player names
+    // resets score and grand total
+    // resets game to round 1
+    // erases letters guessed
+    // erases spin value
   }
 
   quitGame() {
-    
+    this.players = [];
+    this.round = 1;
+    this.fivePuzzles = [];
+    this.wheel = [];
+    this.bonusRound = false;
+    this.playerIndex = 0;
+    this.turn = false;
   }
 
   changeTurn() {
