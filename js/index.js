@@ -6,11 +6,11 @@ function startButton() {
   const player3 = document.querySelector('.player3-name-input');
   if(player1.value === '') {
     player1.value = 'Player 1'
-  } else if(player2.value === '') {
+  } else if (player2.value === '') {
     player2.value = 'Player 2' 
-  } else if(player3.value = '') {
+  } else if (player3.value === '') {
     player3.value = 'Player 3'
-  }
+  };
   game = new Game(player1.value, player2.value, player3.value);
   domUpdates.startGame();
   domUpdates.populatePlayerNames();

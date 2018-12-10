@@ -5,8 +5,8 @@ class Game {
     this.fivePuzzles = this.generateFivePuzzles();
     this.wheel = this.generateWheel();
     this.bonusRound = false;
-    this.playerIndex = 0;
-    this.turn = this.players[this.playerIndex];
+    this.turn = 0;
+    this.currentPlayer = this.players[this.turn];
   }
 
   resetGame() {
@@ -23,16 +23,20 @@ class Game {
     this.fivePuzzles = [];
     this.wheel = [];
     this.bonusRound = false;
-    this.playerIndex = 0;
-    this.turn = false;
+    this.turn = 0;
+  }
+
+
+  guessLetter() {
+    domUpdates.handleConsonantGuessed();
   }
 
   changeTurn() {
-    this.playerIndex++;
-    if(this.playerIndex === this.players.length) {
-      this.playerIndex = 0;
+    this.turn++;
+    if(this.turn === this.players.length) {
+      this.turn = 0;
     }
-    this.turn = this.players[this.playerIndex];
+    this.currentPlayer = this.players[this.turn];
   }
 
   generateWheel() {

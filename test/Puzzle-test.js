@@ -6,7 +6,6 @@ describe('Puzzle', function () {
   it('should check to see if the puzzle has been completed', function () {
     var puzzle = new Puzzle();
     expect(puzzle.puzzleCompleted).to.equal(false);
-    expect(puzzle.puzzleCompleted).to.equal(true);
   });
 
   it('should assign a puzzle randomly upon instantiation', function() {

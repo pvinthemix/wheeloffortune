@@ -16,20 +16,20 @@ describe('Game', function () {
       { 
         name: "Terry",
         turn: false,
-        bankAccount: 0,
-        wallet: 0
+        grandTotal: 0,
+        score: 0
       },
       {
         name: "Jean",
         turn: false,
-        bankAccount: 0,
-        wallet: 0 
+        grandTotal: 0,
+        score: 0 
       },
       {
         name: "Blake",
         turn: false,
-        bankAccount: 0,
-        wallet: 0  
+        grandTotal: 0,
+        score: 0  
       },
     ]
     expect(game.players).to.deep.equal(expected);
@@ -49,7 +49,7 @@ describe('Game', function () {
 
   it('should start with player 1, which is playerIndex of 0', function () {
     let game = new Game();
-    expect(game.playerIndex).to.equal(0);
+    expect(game.turn).to.equal(0);
   });
 
    it('should be the turn of the player whose playerIndex it is', function () {
@@ -57,20 +57,20 @@ describe('Game', function () {
     const expectedPlayer1 = {
       name: "Brian",
       turn: false,
-      bankAccount: 0,
-      wallet: 0  
+      grandTotal: 0,
+      score: 0  
     }
-    expect(game.turn).to.deep.equal(expectedPlayer1);
-    expect(game.turn).to.be.an.instanceof(Player);
+    expect(game.currentPlayer).to.deep.equal(expectedPlayer1);
+    expect(game.currentPlayer).to.be.an.instanceof(Player);
 
     game.changeTurn();
     const expectedPlayer2 = {
       name: "John",
       turn: false,
-      bankAccount: 0,
-      wallet: 0
+      grandTotal: 0,
+      score: 0
     }
-    expect(game.turn).to.deep.equal(expectedPlayer2);
+    expect(game.currentPlayer).to.deep.equal(expectedPlayer2);
   });
 
   it('should generate a new wheel upon invocation', function () {
@@ -100,7 +100,6 @@ describe('Game', function () {
     expect(game.fivePuzzles).to.deep.equal([]);
     expect(game.wheel).to.deep.equal([]);
     expect(game.bonusRound).to.equal(false);
-    expect(game.playerIndex).to.equal(0);
-    expect(game.turn).to.equal(false);
+    expect(game.turn).to.equal(0);
   });
 });
