@@ -3,7 +3,7 @@ let puzzle;
 
 // domUpdates Object
 let domUpdates = {
-  // NOTE: setting up key-value pairs for querySelectors 
+  // NOTE: setting up key-value pairs for querySelectors
   player1Name: document.querySelector('.player1-name'),
   player2Name: document.querySelector('.player2-name'),
   player3Name: document.querySelector('.player3-name'),
@@ -11,6 +11,8 @@ let domUpdates = {
   player2Input: document.querySelector('.player2-name-input'),
   player3Input: document.querySelector('.player3-name-input'),
   startScreen: document.querySelector('.start-screen'),
+  buyVowelScreen: document.querySelector('.buyvowel-screen'),
+  vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
     this.startScreen.classList.add('hidden');
@@ -32,21 +34,18 @@ let domUpdates = {
   },
 
   popupBuyVowelScreen() {
-    const buyVowelScreen = document.querySelector('.buyvowel-screen');
-    buyVowelScreen.classList.remove('hidden');
+    this.buyVowelScreen.classList.remove('hidden');
   },
 
   guessVowel() {
     event.preventDefault();
-    const buyVowelScreen = document.querySelector('.buyvowel-screen');
-    buyVowelScreen.classList.add('hidden');
+    this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
   },
 
   handleVowelGuessed() {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
     const guessVowelInput = document.querySelector('.vowel-guess-input').value.toLowerCase().trim();
-    if (vowels.includes(guessVowelInput)) {
+    if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
       this.greyOut(guessVowelInput);
     } else {
@@ -83,10 +82,9 @@ let domUpdates = {
 
   handleConsonantGuessed(e) {
     e.preventDefault();
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
     const guessLetterInput = document.querySelector('.letter-guess-input').value.toLowerCase().trim();
     
-    if (vowels.includes(guessLetterInput)) {
+    if (this.vowels.includes(guessLetterInput)) {
       // TODO: change UI to some message instead of alert
       alert('PLEASE ENTER A CONSONANT!!!');
     } else {
