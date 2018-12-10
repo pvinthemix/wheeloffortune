@@ -54,6 +54,7 @@ let domUpdates = {
   },
 
   popupBuyVowelScreen() {
+    this.solvePuzzleScreen.classList.add('hidden');
     this.buyVowelScreen.classList.remove('hidden');
   },
 
