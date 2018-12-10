@@ -3,6 +3,9 @@ class Puzzle {
     this.currentPuzzle = this.generatePuzzle(round);
     this.puzzleCompleted = false;
   }
+
+  // keep track of revealed letters already guessed in current puzzle
+  // If someone guesses already guessed letter, the player could get points
   
   generatePuzzle(round) {
     switch (round) {

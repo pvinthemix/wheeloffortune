@@ -33,10 +33,36 @@
   visibility: hidden;
 }
 
+.displaynone {
+  display: none;
+}
+
 .start-screen-heading {
   color: orange;
   font-size: 55px;
   letter-spacing: 4px;
+}
+
+.buyvowel-screen,
+.solvepuzzle-screen {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: grey 5px solid;
+  border-bottom: none;
+  border-radius: 45px;
+  flex-direction: column;
+  color: white;
+  height: 17%;
+  justify-content: center;
+  position: absolute;
+  top: 302px;
+  right: 37px;
+  width: 355px;
+  opacity: .9;
+  z-index: 10;
 }
 
 .name-input {
@@ -72,6 +98,14 @@
   height: 25px;
   outline: none;
   width: 150px;
+}
+
+.guess-vowel-btn,
+.solvepuzzle-btn {
+  border-radius: 10px;
+  height: 25px;
+  outline: none;
+  width: 107px;
 }
 
 .start-button {
@@ -146,13 +180,14 @@
 
 .letters-guessed-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding-top: 10px;
   background-color: black;
   color: white;
 }
 
 .letters-guessed-text {
+  margin-left: 30px;
   color: #CED1D0;
 }
 
@@ -194,6 +229,11 @@ span.letter {
   outline: none;
 }
 
+.vowel-guess-input,
+.solvepuzzle-guess-input {
+  height: 20px;
+}
+
 .grey-font {
   color: grey;
 }
@@ -202,9 +242,9 @@ span.letter {
   border-top-left-radius: 0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  height: 28px;
+  height: 27px;
   outline: none;
-  margin: -5.4px;
+  margin-left: -6.4px;
   width: 80px;
 }
 

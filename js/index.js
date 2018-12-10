@@ -1,6 +1,5 @@
 document.querySelector('.start-button').addEventListener('click', startButton);
 
-
 function startButton() {
   const player1 = document.querySelector('.player1-name-input');
   const player2 = document.querySelector('.player2-name-input');
