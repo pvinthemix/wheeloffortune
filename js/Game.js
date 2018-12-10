@@ -27,8 +27,28 @@ class Game {
   }
 
 
-  guessLetter() {
-    domUpdates.handleConsonantGuessed();
+  handleConsonantGuessed() {
+    let answerWordArray = game.fivePuzzles[0].currentPuzzle.correct_answer.split('');
+    let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
+    
+    if (answerWordArray.includes(letterGuessInput)) {
+
+
+      //update DOM with that letter
+      //give points value to current player
+      //they spin again or solve puzzle
+
+    }  {
+      //They dont get any points 
+      //change turn to next player
+    }
+  }
+
+  guessPuzzleAnswer() {
+    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
+    if (puzzleGuessInput == game.fivePuzzles[0].currentPuzzle.correct_answer.toUpperCase()) {
+      domUpdates.guessPuzzle()
+    }
   }
 
   changeTurn() {

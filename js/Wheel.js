@@ -1,7 +1,7 @@
 class Wheel {
-  constructor(currentSpinValue) {
+  constructor() {
     this.spinValues = this.generateSpinValues();
-    this.currentSpinValue = currentSpinValue;
+    this.currentSpinValue = null;
   }
 
   generateSpinValues() {
@@ -13,7 +13,14 @@ class Wheel {
     }
     return newWheelValues;
   }
+
+  generateCurrentSpinValue() {
+    const randomIndex = Math.floor(Math.random() * 6);
+    console.log('Hello')
+    this.currentSpinValue = this.spinValues[randomIndex]
+  }
 }
+
 
 if (typeof module !== 'undefined') {
   module.exports = Wheel;

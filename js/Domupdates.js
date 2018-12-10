@@ -1,6 +1,8 @@
 let game;
 let puzzle;
 let player;
+let wheel;
+
 
 // domUpdates Object
 let domUpdates = {
@@ -15,6 +17,7 @@ let domUpdates = {
   buyVowelScreen: document.querySelector('.buyvowel-screen'),
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   guessVowelInput: document.querySelector('.vowel-guess-input'),
+  guessLetterInput: document.querySelector('.letter-guess-input'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -80,13 +83,9 @@ let domUpdates = {
     }
   },
 
-  guessPuzzle() {
+  guessPuzzleAnswer() {
     event.preventDefault();
-    debugger
-    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    if(puzzleGuessInput == game.fivePuzzles[0].currentPuzzle.correct_answer.toUpperCase()) {
-      console.log("You got the correct answer")
-    }
+    alert("You got the correct answer")
     this.solvePuzzleScreen.classList.add('hidden');
   },
 
@@ -102,9 +101,9 @@ let domUpdates = {
   },
 
   showSpinValue() {
-    const spinValue = document.querySelector('.current-spin-value');
-    const randomIndex = Math.floor(Math.random() * 6);
-    spinValue.innerText = game.wheel[0].spinValues[randomIndex];
+    // const spinValue = document.querySelector('.current-spin-value');
+    wheel.generateCurrentSpinValue();
+    // spinValue.innerText = wheel.currentSpinValue;
   },
 
   showPuzzleCategory() {
@@ -115,14 +114,14 @@ let domUpdates = {
 
   handleConsonantGuessed(e) {
     e.preventDefault();
-    const guessLetterInput = document.querySelector('.letter-guess-input').value.toLowerCase().trim();
-    
-    if (this.vowels.includes(guessLetterInput)) {
-      // TODO: change UI to some message instead of alert
-      alert('PLEASE ENTER A CONSONANT!!!');
-    } else {
-      this.greyOut(guessLetterInput);
-    }
+    let guessLetterInput = this.guessLetterInput.value.toLowerCase().trim();
+    game.handleConsonantGuessed();
+    // if (this.vowels.includes(guessLetterInput)) {
+    //   // TODO: change UI to some message instead of alert
+    //   alert('PLEASE ENTER A CONSONANT!!!');
+    // } else {
+    //   this.greyOut(guessLetterInput);
+    // }
   },
 
   greyOut(letter) {
@@ -141,6 +140,6 @@ document.querySelector('.letter-guess-submit-btn').addEventListener('click', dom
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
 document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
 document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
-document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
+document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzleAnswer.bind(domUpdates));
 
 
