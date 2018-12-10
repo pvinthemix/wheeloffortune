@@ -27,6 +27,8 @@ let domUpdates = {
     this.player1Input.value = '';
     this.player2Input.value = '';
     this.player3Input.value = '';
+    this.buyVowelScreen.classList.add('hidden');
+    this.solvePuzzleScreen.classList.add('hidden');
     this.startScreen.classList.remove('hidden');
   },
   
@@ -115,7 +117,6 @@ document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSp
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
 document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
-document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
 
