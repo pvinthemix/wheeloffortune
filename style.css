@@ -157,6 +157,14 @@
   width: 256px;
 }
 
+.guess-vowel-btn:hover,
+.solvepuzzle-submit-btn:hover {
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
 .wheel-btn {
   background-image: url("images/Wheel.png");
   background-position: center;
