@@ -10,11 +10,17 @@ class Game {
   }
 
   resetGame() {
-
+    // keeps player names
+    // resets score and grand total
+    // resets game to round 1
+    // erases letters guessed
+    // erases spin value
   }
 
   quitGame() {
-    
+  //   goes back to login screen
+  //   deletes players
+  //   resets everything to inital state
   }
 
   changeTurn() {
