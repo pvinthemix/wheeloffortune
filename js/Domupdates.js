@@ -34,7 +34,7 @@ let domUpdates = {
     this.startScreen.classList.remove('hidden');
     let letter = document.getElementsByClassName('letter');
     for(let i=0; i<letter.length; i++) {
-      letter[i].classList.add('white-font');
+      letter[i].classList.remove('green-font');
     }
   },
   
@@ -44,7 +44,7 @@ let domUpdates = {
     game.playerIndex = 0;
     let letter = document.getElementsByClassName('letter');
       for(let i=0; i<letter.length; i++) {
-        letter[i].classList.add('white-font');
+        letter[i].classList.remove('green-font');
       }
     this.showPuzzleCategory();
     // player.bankAccount = 0;

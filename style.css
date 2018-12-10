@@ -245,10 +245,6 @@ span.letter {
   color: #289477;
 }
 
-.white-font {
-  color: white;
-}
-
 .letter-guess-submit-btn {
   border-top-left-radius: 0;
   border-top-right-radius: 10px;
