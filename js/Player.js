@@ -2,12 +2,8 @@ class Player {
   constructor(name) {
     this.name = name;
     this.turn = false;
-    this.bankAccount = 0;
-    this.wallet = 0;
-  }
-
-  guessLetter() {
-
+    this.grandTotal = 0;
+    this.score = 0;
   }
 
   buyVowel() {

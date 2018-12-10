@@ -11,11 +11,11 @@ describe('Player', function () {
 
   it('should start with a bank account of zero', function() {
     var player = new Player('Lee');
-    expect(player.bankAccount).to.equal(0)
+    expect(player.grandTotal).to.equal(0)
   })
 
   it('should start off with a wallet of zero', function() {
     var player = new Player('Lee');
-    expect(player.wallet).to.equal(0)
+    expect(player.score).to.equal(0)
   })
 });
