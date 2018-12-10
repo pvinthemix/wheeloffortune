@@ -39,6 +39,7 @@ let domUpdates = {
   },
 
   popupSolvePuzzleScreen() {
+    this.buyVowelScreen.classList.add('hidden');
     this.solvePuzzleScreen.classList.remove('hidden');
   },
 
@@ -61,7 +62,7 @@ let domUpdates = {
   guessPuzzle() {
     event.preventDefault();
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    console.log('hi');
+    console.log(puzzleGuessInput);
     this.solvePuzzleScreen.classList.add('hidden');
   },
 
@@ -114,6 +115,7 @@ document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSp
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
 document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
+document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
 
