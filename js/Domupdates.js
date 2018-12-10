@@ -12,6 +12,7 @@ let domUpdates = {
   player3Input: document.querySelector('.player3-name-input'),
   startScreen: document.querySelector('.start-screen'),
   buyVowelScreen: document.querySelector('.buyvowel-screen'),
+  solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -37,6 +38,10 @@ let domUpdates = {
     this.buyVowelScreen.classList.remove('hidden');
   },
 
+  popupSolvePuzzleScreen() {
+    this.solvePuzzleScreen.classList.remove('hidden');
+  },
+
   guessVowel() {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
@@ -53,11 +58,13 @@ let domUpdates = {
     }
   },
 
-  // solvePuzzle() {
-  //   let inGameSolvePuzzleBtn = document.querySelector('.solve-puzzle-btn');
-  //   let popupSolvePuzzleBtn = document.querySelector('.solvepuzzle-btn');
-  // }
-  
+  guessPuzzle() {
+    event.preventDefault();
+    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
+    console.log('hi');
+    this.solvePuzzleScreen.classList.add('hidden');
+  },
+
   populatePlayerNames() {
     this.player1Name.innerText = this.capitalizeFirstLetter(this.player1Input.value);
     this.player2Name.innerText = this.capitalizeFirstLetter(this.player2Input.value);
@@ -106,6 +113,7 @@ document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.qu
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue);
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
+document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
 document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
-
+document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
 

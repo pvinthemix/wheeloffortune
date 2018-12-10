@@ -58,7 +58,7 @@
   height: 17%;
   justify-content: center;
   position: absolute;
-  top: 302px;
+  top: 295px;
   right: 37px;
   width: 355px;
   opacity: .9;
@@ -101,11 +101,15 @@
 }
 
 .guess-vowel-btn,
-.solvepuzzle-btn {
+.solvepuzzle-submit-btn {
   border-radius: 10px;
   height: 25px;
   outline: none;
   width: 107px;
+}
+
+.solvepuzzle-submit-btn {
+  margin-bottom: 14px;
 }
 
 .start-button {
@@ -229,9 +233,19 @@ span.letter {
   outline: none;
 }
 
+.solvepuzzle-submit-btn {
+  width: 256px;
+}
+
 .vowel-guess-input,
 .solvepuzzle-guess-input {
+  text-align: center;
   height: 20px;
+}
+
+.solvepuzzle-guess-input {
+  display: block;
+  width: 250px;
 }
 
 .grey-font {
