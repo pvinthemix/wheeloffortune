@@ -16,8 +16,7 @@ class Wheel {
 
   generateCurrentSpinValue() {
     const randomIndex = Math.floor(Math.random() * 6);
-    console.log('Hello')
-    this.currentSpinValue = this.spinValues[randomIndex]
+    this.currentSpinValue = this.spinValues[randomIndex];
   }
 }
 

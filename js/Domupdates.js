@@ -101,9 +101,10 @@ let domUpdates = {
   },
 
   showSpinValue() {
-    // const spinValue = document.querySelector('.current-spin-value');
+    wheel = new Wheel();
+    const spinValue = document.querySelector('.current-spin-value');
     wheel.generateCurrentSpinValue();
-    // spinValue.innerText = wheel.currentSpinValue;
+    spinValue.innerText = wheel.currentSpinValue;
   },
 
   showPuzzleCategory() {
@@ -135,7 +136,7 @@ document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.qu
 // NOTE: 
   // If we used ES5 syntax without binding, this would refer to the HTML button element (where it was called)
   // If we used ES6 arrow syntax, this would refer to the global window object
-document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue);
+document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue.bind(domUpdates));
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
 document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
