@@ -30,16 +30,18 @@ class Game {
   handleConsonantGuessed() {
     let answerWordArray = game.fivePuzzles[0].currentPuzzle.correct_answer.split('');
     let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
-    
     if (answerWordArray.includes(letterGuessInput)) {
-
-
+      console.log("You got it!")
+      this.currentPlayer.updateCurrentPlayerScore();
+      console.log(this.currentPlayer)
       //update DOM with that letter
       //give points value to current player
       //they spin again or solve puzzle
-
-    }  {
+    } else {
+      console.log("WRONG!")
       //They dont get any points 
+      this.changeTurn();
+      console.log(this.currentPlayer)
       //change turn to next player
     }
   }
@@ -53,7 +55,7 @@ class Game {
 
   changeTurn() {
     this.turn++;
-    if(this.turn === this.players.length) {
+    if (this.turn === this.players.length) {
       this.turn = 0;
     }
     this.currentPlayer = this.players[this.turn];

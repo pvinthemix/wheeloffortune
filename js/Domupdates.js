@@ -102,8 +102,8 @@ let domUpdates = {
 
   showSpinValue() {
     wheel = new Wheel();
-    const spinValue = document.querySelector('.current-spin-value');
     wheel.generateCurrentSpinValue();
+    const spinValue = document.querySelector('.current-spin-value');
     spinValue.innerText = wheel.currentSpinValue;
   },
 

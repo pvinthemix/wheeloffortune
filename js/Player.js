@@ -1,9 +1,16 @@
 class Player {
   constructor(name) {
     this.name = name;
-    this.turn = false;
     this.grandTotal = 0;
     this.score = 0;
+  }
+
+  increaseCurrentPlayerScore() {
+    this.score = wheel.currentSpinValue;
+  }
+
+  decreaseCurrentPlayerScore() {
+    
   }
 
   buyVowel() {
