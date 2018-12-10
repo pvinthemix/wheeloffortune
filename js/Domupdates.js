@@ -1,5 +1,6 @@
 let game;
 let puzzle;
+let player;
 
 // domUpdates Object
 let domUpdates = {
@@ -31,10 +32,22 @@ let domUpdates = {
     this.buyVowelScreen.classList.add('hidden');
     this.solvePuzzleScreen.classList.add('hidden');
     this.startScreen.classList.remove('hidden');
+    let letter = document.getElementsByClassName('letter');
+    for(let i=0; i<letter.length; i++) {
+      letter[i].classList.add('white-font');
+    }
   },
   
   resetGame() {
-
+    game.resetGame();
+    game.round = 1;
+    game.playerIndex = 0;
+    // player.bankAccount = 0;
+    // player.wallet = 0;
+    let letter = document.getElementsByClassName('letter');
+    for(let i=0; i<letter.length; i++) {
+      letter[i].classList.add('white-font');
+    }
   },
 
   popupBuyVowelScreen() {
@@ -105,7 +118,7 @@ let domUpdates = {
   },
 
   greyOut(letter) {
-    document.querySelector(`.letter-${letter}`).classList.add('grey-font');
+    document.querySelector(`.letter-${letter}`).classList.add('green-font');
   },
 };
 

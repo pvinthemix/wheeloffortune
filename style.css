@@ -241,8 +241,12 @@ span.letter {
   width: 250px;
 }
 
-.grey-font {
+.green-font {
   color: #289477;
+}
+
+.white-font {
+  color: white;
 }
 
 .letter-guess-submit-btn {
