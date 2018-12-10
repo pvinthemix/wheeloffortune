@@ -95,10 +95,10 @@ describe('Game', function () {
   it('will quit game', function () {
     let game = new Game();
     game.quitGame();
-    expect(game.players).to.equal([]);
+    expect(game.players).to.deep.equal([]);
     expect(game.round).to.equal(1);
-    expect(game.fivePuzzles).to.equal([]);
-    expect(game.wheel).to.equal([]);
+    expect(game.fivePuzzles).to.deep.equal([]);
+    expect(game.wheel).to.deep.equal([]);
     expect(game.bonusRound).to.equal(false);
     expect(game.playerIndex).to.equal(0);
     expect(game.turn).to.equal(false);

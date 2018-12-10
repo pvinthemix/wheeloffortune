@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-.new-game-btn,
+.reset-game-btn,
 .quit-game-btn {
   border-radius: 10px;
   height: 25px;
@@ -117,18 +117,18 @@
   width: 165px;
 }
 
-.new-game-btn:hover,
+.reset-game-btn:hover,
 .quit-game-btn:hover {
   background-color: orange;
   cursor: pointer;
 }
 
 .start-button:focus,
-.new-game-btn:focus,
+.reset-game-btn:focus,
 .quit-game-btn:focus,
-.buy-vowel-btn: focus,
-.solve-puzzle-btn: focus,
-.letter-guess-submit-btn: focus {
+.buy-vowel-btn:focus,
+.solve-puzzle-btn:focus,
+.letter-guess-submit-btn:focus {
   outline: none;
 }
 

@@ -18,9 +18,13 @@ class Game {
   }
 
   quitGame() {
-  //   goes back to login screen
-  //   deletes players
-  //   resets everything to inital state
+    this.players = [];
+    this.round = 1;
+    this.fivePuzzles = [];
+    this.wheel = [];
+    this.bonusRound = false;
+    this.playerIndex = 0;
+    this.turn = false;
   }
 
   changeTurn() {
