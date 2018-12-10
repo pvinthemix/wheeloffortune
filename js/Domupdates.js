@@ -42,12 +42,15 @@ let domUpdates = {
     game.resetGame();
     game.round = 1;
     game.playerIndex = 0;
+    let letter = document.getElementsByClassName('letter');
+      for(let i=0; i<letter.length; i++) {
+        letter[i].classList.add('white-font');
+      }
+    this.showPuzzleCategory();
     // player.bankAccount = 0;
     // player.wallet = 0;
-    let letter = document.getElementsByClassName('letter');
-    for(let i=0; i<letter.length; i++) {
-      letter[i].classList.add('white-font');
-    }
+    game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
+    this.showPuzzleCategory();
   },
 
   popupBuyVowelScreen() {
@@ -123,7 +126,7 @@ let domUpdates = {
 };
 
 // *Event Listeners*
-document.querySelector('.reset-game-btn').addEventListener('click', domUpdates.resetGame);
+document.querySelector('.reset-game-btn').addEventListener('click', domUpdates.resetGame.bind(domUpdates));
 document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.quitGame.bind(domUpdates));
 // NOTE: 
   // If we used ES5 syntax without binding, this would refer to the HTML button element (where it was called)
