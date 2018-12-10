@@ -82,8 +82,11 @@ let domUpdates = {
 
   guessPuzzle() {
     event.preventDefault();
+    debugger
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    console.log(puzzleGuessInput);
+    if(puzzleGuessInput == game.fivePuzzles[0].currentPuzzle.correct_answer.toUpperCase()) {
+      console.log("You got the correct answer")
+    }
     this.solvePuzzleScreen.classList.add('hidden');
   },
 
@@ -138,4 +141,5 @@ document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.po
 document.querySelector('.solve-puzzle-btn').addEventListener('click', domUpdates.popupSolvePuzzleScreen.bind(domUpdates));
 document.querySelector('.guess-vowel-btn').addEventListener('click', domUpdates.guessVowel.bind(domUpdates));
 document.querySelector('.solvepuzzle-submit-btn').addEventListener('click', domUpdates.guessPuzzle.bind(domUpdates));
+
 
