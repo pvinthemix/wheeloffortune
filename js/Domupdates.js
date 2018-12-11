@@ -130,6 +130,15 @@ let domUpdates = {
     player3score.innerText = game.players[2].score;
   },
 
+  showGrandTotalScore() {
+    let player1GrandTotal = document.querySelector('.player1-grandtotal');
+    let player2GrandTotal = document.querySelector('.player2-grandtotal');
+    let player3GrandTotal = document.querySelector('.player3-grandtotal');
+    player1GrandTotal.innerText = game.players[0].grandTotal;
+    player2GrandTotal.innerText = game.players[1].grandTotal;
+    player3GrandTotal.innerText = game.players[2].grandTotal;
+  },
+
   showSpinValue() {
     wheel = new Wheel();
     wheel.generateCurrentSpinValue();
