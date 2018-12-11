@@ -71,6 +71,7 @@ let domUpdates = {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
+    this.showPlayerScore();
     this.guessVowelInput.value = '';
   },
 
@@ -120,6 +121,15 @@ let domUpdates = {
     }
   },
 
+  showPlayerScore() {
+    let player1score = document.querySelector('.player1-score');
+    let player2score = document.querySelector('.player2-score');
+    let player3score = document.querySelector('.player3-score');
+    player1score.innerText = game.players[0].score;
+    player2score.innerText = game.players[1].score;
+    player3score.innerText = game.players[2].score;
+  },
+
   showSpinValue() {
     wheel = new Wheel();
     wheel.generateCurrentSpinValue();
@@ -145,6 +155,7 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
     }
     game.handleConsonantGuessed();
+    this.showPlayerScore();
   },
 
   greyOut(letter) {
