@@ -95,6 +95,10 @@
   letter-spacing: 2px;
 }
 
+.name-input {
+  z-index: 10;
+}
+
 .buyvowel-screen,
 .solvepuzzle-screen {
   align-items: center;
