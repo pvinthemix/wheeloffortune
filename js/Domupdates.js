@@ -141,8 +141,8 @@ let domUpdates = {
 
   showPuzzleCategory() {
     const puzzleCategoryOutput = document.querySelector('.puzzle-category-name')
-    const round1PuzzleCategory = game.fivePuzzles[0].currentPuzzle.category;
-    puzzleCategoryOutput.innerText = round1PuzzleCategory;
+    const roundPuzzleCategory = game.fivePuzzles[game.round].currentPuzzle.category;
+    puzzleCategoryOutput.innerText = roundPuzzleCategory;
   },
 
   handleConsonantGuessed(e) {
