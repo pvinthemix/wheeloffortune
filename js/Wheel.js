@@ -22,7 +22,8 @@ class Wheel {
 
   checkForBankrupt() {
     if (this.currentSpinValue === 'BANKRUPT') {
-      game.currentPlayer.score = 0
+      game.players[game.turn].score = 0;
+      domUpdates.showPlayerScore();
       game.changeTurn();
     }
   }
