@@ -12,9 +12,11 @@ class Game {
 
   resetGame() {
     // keeps player names
-    // resets score and grand total
-    // resets game to round 1
-    // erases letters guessed
+    this.round = 0;
+    this.bonusRound = false;
+    this.turn = 0;
+    this.currentPlayer.score = 0;
+    this.guessedLetters = [];
     // erases spin value
   }
 
@@ -55,6 +57,7 @@ class Game {
 
   changeRound() {
     this.round++;
+    domUpdates.showGrandTotalScore()
     if (this.round === 5) {
       this.quitGame();
     }
@@ -73,11 +76,9 @@ class Game {
     }
   }
 
-
-
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    if (puzzleGuessInput == game.fivePuzzles[0].currentPuzzle.correct_answer.toUpperCase()) {
+    if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
       domUpdates.guessPuzzle()
     }
   }
