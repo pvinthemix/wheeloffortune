@@ -46,7 +46,7 @@
   flex-direction: column;
   height: 82%;
   justify-content: center;
-  opacity: .9;
+  opacity: .95;
   margin: 105px;
   position: absolute;
   top: -5%;
@@ -56,8 +56,47 @@
 
 .start-screen-heading {
   color: orange;
-  font-size: 55px;
+  font-size: 60px;
   letter-spacing: 4px;
+  opacity: 1;
+}
+
+.instructions-heading,
+.instructions {
+  margin: auto;
+  font-weight: 400;
+}
+
+.instructions-heading {
+  margin-bottom: -15px;
+  color: white;
+}
+
+.instructions {
+  letter-spacing: 2.5px;
+  margin-top: -40px;
+  margin-bottom: 30px;
+}
+
+.player-names-container {
+  display: flex;
+  background-color: purple;
+  width: 600px;
+  align-items: center;
+  justify-content: center;
+  margin-top: -25px;
+}
+
+.player-names {
+  color: orange;
+  display: flex;
+  flex-direction: column;
+  margin-left: -250px;
+  letter-spacing: 2px;
+}
+
+.name-input {
+  z-index: 10;
 }
 
 .buyvowel-screen,
@@ -98,16 +137,21 @@
 
 /* *Buttons* */
 .start-button {
-  background-color: #289477;
-  border: solid grey 1.5px;
+  background-color: #5c128c;
+  border-radius: 100%;
+  border: solid grey 3px;
   color: white;
-  height: 35px;
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  height: 150px;
   margin: 15px;
-  width: 165px;
+  margin-left: 275px;
+  outline: none;
+  width: 150px;
 }
 
 .start-button:hover {
-  background-color: #5c128c;
+  background-color: #289477;
   color: white;
   cursor: pointer;
 }
@@ -155,7 +199,7 @@
   border-bottom-right-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 10px;
-  height: 26px;
+  height: 27px;
   margin-left: -6.4px;
   outline: none;
   width: 107px;
@@ -201,7 +245,8 @@
 .name-input {
   font-size: 18px;
   height: 25px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   padding: 5px;
   width: 150px;
 }
@@ -302,10 +347,15 @@ form {
   font-size: 20px;
 }
 
-span.letter {
+span.letter,
+.divider {
   letter-spacing: 5px;
   margin-left: 5px;
   text-align: center;
+}
+
+.divider {
+  color: grey;
 }
 
 .playerscore-wheel-container {

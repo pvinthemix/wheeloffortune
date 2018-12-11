@@ -11,10 +11,24 @@
  <main>
     <section class="start-screen">
       <h2 class="start-screen-heading">$PIN 2 WIN</h2>
-        Player 1 Name:<input type="text" class="name-input player1-name-input">
-        Player 2 Name:<input type="text" class="name-input player2-name-input">
-        Player 3 Name:<input type="text" class="name-input player3-name-input">
-        <input class="start-button" type="submit" value="PLAY GAME"></input>
+        <p class="instructions">
+        <br>* Only the current player can guess letters or solve the puzzle
+        <br>* The player must spin the wheel and enter a consonant to earn points 
+        <br>* After each guess, the player must press spin wheel button again
+        <br>* The player can buy a vowel for $100 or solve the puzzle anytime during their turn
+        <br>* Only the player who solves the puzzle keeps their score, which transfers to grand total
+        <br>* Only the player with the highest grand total after 4 rounds will go to the bonus round
+        </p>
+        <p class="player-names-container">
+          <p class="player-names">
+            Player 1 Name:<input type="text" class="name-input player1-name-input">
+            Player 2 Name:<input type="text" class="name-input player2-name-input">
+            Player 3 Name:<input type="text" class="name-input player3-name-input">
+          </p>
+          <p class="start-button-container">
+            <input class="start-button" type="submit" value="PLAY GAME"></input>
+          </p>
+        </p>
     </section>
 
     <section class="hidden buyvowel-screen">
@@ -89,26 +103,27 @@
     <section class="letters-guessed-container">
       <span class="letters-guessed-text">Letters Guessed:</span> 
       <span class="letter letter letter-a"> A</span>
+      <span class="letter letter-e"> E</span>
+      <span class="letter letter-i"> I</span>
+      <span class="letter letter-o"> O</span>
+      <span class="letter letter-u"> U</span>
+      <span class="divider"> |</span>
       <span class="letter letter-b"> B</span>
       <span class="letter letter-c"> C</span>
       <span class="letter letter-d"> D</span>
-      <span class="letter letter-e"> E</span>
       <span class="letter letter-f"> F</span>
       <span class="letter letter-g"> G</span>
       <span class="letter letter-h"> H</span>
-      <span class="letter letter-i"> I</span>
       <span class="letter letter-j"> J</span>
       <span class="letter letter-k"> K</span>
       <span class="letter letter-l"> L</span>
       <span class="letter letter-m"> M</span>
       <span class="letter letter-n"> N</span>
-      <span class="letter letter-o"> O</span>
       <span class="letter letter-p"> P</span>
       <span class="letter letter-q"> Q</span>
       <span class="letter letter-r"> R</span>
       <span class="letter letter-s"> S</span>
       <span class="letter letter-t"> T</span>
-      <span class="letter letter-u"> U</span>
       <span class="letter letter-v"> V</span>
       <span class="letter letter-w"> W</span>
       <span class="letter letter-x"> X</span>
