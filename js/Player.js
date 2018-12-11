@@ -6,7 +6,7 @@ class Player {
   }
 
   increaseCurrentPlayerScore() {
-    this.score = wheel.currentSpinValue;
+    this.score += wheel.currentSpinValue;
   }
 
   decreaseCurrentPlayerScore() {
