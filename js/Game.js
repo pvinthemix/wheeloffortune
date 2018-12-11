@@ -79,7 +79,8 @@ class Game {
 
   changeRound() {
     this.round++;
-    domUpdates.showGrandTotalScore()
+    domUpdates.showGrandTotalScore();
+    domUpdates.showCurrentPuzzle();
     if (this.round === 5) {
       this.quitGame();
     }

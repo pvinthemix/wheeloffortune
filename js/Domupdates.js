@@ -152,18 +152,20 @@ let domUpdates = {
   },
 
   showCurrentPuzzle() {
-    debugger
-    // need the length of the puzzle answer for number of white boxes
-    // game.getCurrentPuzzle().currentPuzzle.total_number_of_letters
     // insert letter into each box as inner text
     // give CSS property of white background and white text
     // if they guess the correct letter, letter changes to black text
-    debugger
     let currentPuzzleLetterCount = game.getCurrentPuzzle().currentPuzzle.total_number_of_letters;
-    let whitePuzzleBox = document.getElementsByClassName('puzzle-box');
+    let greenPuzzleBoxes = document.getElementsByClassName('puzzle-box');
+    let whitePuzzleBoxes; 
     for(let i = 0; i < currentPuzzleLetterCount; i++) {
-      whitePuzzleBox[i].classList.add('white-background');
+      greenPuzzleBoxes[i].classList.add('white-background');
     }
+    let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
+    splitAnswerArray.forEach((letter, index) => {
+      let rowBox = document.querySelector(`.row1-box${index + 1}`);  
+        rowBox.innerText = letter
+      })
   },
 
   handleConsonantGuessed(e) {
