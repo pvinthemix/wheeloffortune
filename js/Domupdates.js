@@ -118,13 +118,13 @@ let domUpdates = {
   handleConsonantGuessed(e) {
     e.preventDefault();
     let guessLetterInput = this.guessLetterInput.value.toLowerCase().trim();
+    if (this.vowels.includes(guessLetterInput)) {
+      // TODO: change UI to some message instead of alert
+      alert('PLEASE ENTER A CONSONANT!!!');
+    } else {
+      this.greyOut(guessLetterInput);
+    }
     game.handleConsonantGuessed();
-    // if (this.vowels.includes(guessLetterInput)) {
-    //   // TODO: change UI to some message instead of alert
-    //   alert('PLEASE ENTER A CONSONANT!!!');
-    // } else {
-    //   this.greyOut(guessLetterInput);
-    // }
   },
 
   greyOut(letter) {
