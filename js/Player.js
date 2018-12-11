@@ -10,8 +10,10 @@ class Player {
   }
 
   decreaseCurrentPlayerScore() {
-    
+
   }
+
+  
 
   buyVowel() {
 

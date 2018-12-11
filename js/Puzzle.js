@@ -2,6 +2,7 @@ class Puzzle {
   constructor(round) {
     this.currentPuzzle = this.generatePuzzle(round);
     this.puzzleCompleted = false;
+    this.answer = this.currentPuzzle.correct_answer.toUpperCase().replace(' ', '').split('')
   }
 
   // keep track of revealed letters already guessed in current puzzle
@@ -9,21 +10,16 @@ class Puzzle {
   
   generatePuzzle(round) {
     switch (round) {
-      case 1:
-        return this.findPuzzleData(data.puzzles.one_word_answers);
-        break;
-      case 2:
-        return this.findPuzzleData(data.puzzles.two_word_answers);
-        break;
-      case 3:
-        return this.findPuzzleData(data.puzzles.three_word_answers);
-        break;
-      case 4:
-        return this.findPuzzleData(data.puzzles.four_word_answers);
-        break;
-      case 5:
-        return this.findPuzzleData(data.puzzles.four_word_answers);
-        break;
+    case 1:
+      return this.findPuzzleData(data.puzzles.one_word_answers);
+    case 2:
+      return this.findPuzzleData(data.puzzles.two_word_answers);
+    case 3:
+      return this.findPuzzleData(data.puzzles.three_word_answers);
+    case 4:
+      return this.findPuzzleData(data.puzzles.four_word_answers);
+    case 5:
+      return this.findPuzzleData(data.puzzles.four_word_answers);
     }
   }
 

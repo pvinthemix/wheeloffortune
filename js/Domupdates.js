@@ -105,6 +105,8 @@ let domUpdates = {
     wheel.generateCurrentSpinValue();
     const spinValue = document.querySelector('.current-spin-value');
     spinValue.innerText = wheel.currentSpinValue;
+    wheel.checkForBankrupt();
+    wheel.checkForLoseTurn();
   },
 
   showPuzzleCategory() {
