@@ -148,6 +148,13 @@
   margin-left: 275px;
   outline: none;
   width: 150px;
+  animation: glowing 1500ms infinite;
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 3px rgb(222, 190, 130) }
+  50% { box-shadow: 0 0 10px orange }
+  100% { box-shadow: 0 0 3px rgb(250, 205, 121) }
 }
 
 .start-button:hover {
@@ -235,6 +242,15 @@
   outline: none;
   width: 250px;
   -webkit-animation: rotation 15s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
 }
 
 .wheel-btn:hover {
@@ -332,6 +348,7 @@
   color: orange;
 }
 
+
 .guess-container {
   align-items: center;
   background-color: black;
@@ -427,13 +444,4 @@ span.letter,
 .spin-text {
   font-size: 12px;
   line-height: 50%;
-}
-
-@-webkit-keyframes rotation {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(359deg);
-    }
 }
