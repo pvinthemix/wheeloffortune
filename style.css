@@ -302,10 +302,15 @@ form {
   font-size: 20px;
 }
 
-span.letter {
+span.letter,
+.divider {
   letter-spacing: 5px;
   margin-left: 5px;
   text-align: center;
+}
+
+.divider {
+  color: grey;
 }
 
 .playerscore-wheel-container {
