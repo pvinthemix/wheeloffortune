@@ -44,15 +44,10 @@ let domUpdates = {
   
   resetGame() {
     game.resetGame();
-    game.round = 1;
-    game.playerIndex = 0;
     let letter = document.getElementsByClassName('letter');
       for(let i=0; i<letter.length; i++) {
         letter[i].classList.remove('green-font');
       }
-    this.showPuzzleCategory();
-    // player.bankAccount = 0;
-    // player.wallet = 0;
     game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
     this.showPuzzleCategory();
   },

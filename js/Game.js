@@ -16,8 +16,9 @@ class Game {
     this.bonusRound = false;
     this.turn = 0;
     this.currentPlayer.score = 0;
+    this.currentPlayer.grandTotal = 0;
     this.guessedLetters = [];
-    // erases spin value
+    this.wheel[0].currentSpinValue = 0;
   }
 
   quitGame() {
