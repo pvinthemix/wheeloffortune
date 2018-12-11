@@ -72,7 +72,6 @@ let domUpdates = {
   },
 
   handleVowelGuessed() {
-    debugger
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
