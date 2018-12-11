@@ -28,10 +28,6 @@
  background-color: #fffbb8;
 }
 
-.whiteBackground {
-  background-color: white;
-}
-
 .main {
   display: grid;
   width: 100%;
@@ -448,4 +444,8 @@ span.letter,
 .spin-text {
   font-size: 12px;
   line-height: 50%;
+}
+
+.white-background {
+  background-color: white;
 }

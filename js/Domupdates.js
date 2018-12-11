@@ -158,10 +158,11 @@ let domUpdates = {
     // insert letter into each box as inner text
     // give CSS property of white background and white text
     // if they guess the correct letter, letter changes to black text
+    debugger
     let currentPuzzleLetterCount = game.getCurrentPuzzle().currentPuzzle.total_number_of_letters;
-    let whitePuzzleBox = document.querySelectorAll('puzzle-box');
+    let whitePuzzleBox = document.getElementsByClassName('puzzle-box');
     for(let i = 0; i < currentPuzzleLetterCount; i++) {
-      whitePuzzleBox.classList.add('whiteBackground');
+      whitePuzzleBox[i].classList.add('white-background');
     }
   },
 
