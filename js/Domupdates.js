@@ -17,7 +17,7 @@ let domUpdates = {
   buyVowelScreen: document.querySelector('.buyvowel-screen'),
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   guessVowelInput: document.querySelector('.vowel-guess-input'),
-  guessLetterInput: document.querySelector('.letter-guess-input'),
+  consonantLetterInput: document.querySelector('.consonant-guess-input'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -66,11 +66,13 @@ let domUpdates = {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
+    game.handleVowelGuessed();
     this.showPlayerScore();
     this.guessVowelInput.value = '';
   },
 
   handleVowelGuessed() {
+    debugger
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
@@ -151,7 +153,7 @@ let domUpdates = {
 
   handleConsonantGuessed(e) {
     e.preventDefault();
-    let guessLetterInput = this.guessLetterInput.value.toLowerCase().trim();
+    let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessLetterInput)) {
       // TODO: change UI to some message instead of alert
       alert('PLEASE ENTER A CONSONANT!!!');
@@ -159,6 +161,7 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
     }
     game.handleConsonantGuessed();
+    this.consonantLetterInput = '';
     this.showPlayerScore();
   },
 

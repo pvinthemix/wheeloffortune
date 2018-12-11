@@ -32,7 +32,7 @@ class Game {
 
 
   handleConsonantGuessed() {
-    let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
+    let letterGuessInput = document.querySelector('.consonant-guess-input').value.toUpperCase();
     if (this.getCurrentPuzzle().answer.includes(letterGuessInput)) {
       console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
@@ -46,6 +46,27 @@ class Game {
       //they spin again or solve puzzle
     } else {
       console.log("WRONG!")
+      //They dont get any points 
+      this.changeTurn();
+      //change turn to next player
+    }
+  }
+
+  handleVowelGuessed() {
+    let vowelGuessInput = document.querySelector('.vowel-guess-input').value.toUpperCase();
+    if (this.getCurrentPuzzle().answer.includes(vowelGuessInput)) {
+      console.log("You got it the vowel right!");
+      this.currentPlayer.decreaseCurrentPlayerScore();
+      this.guessedLetters.push(letterGuessInput);
+      this.isPuzzleFinished();
+      if (this.getCurrentPuzzle().puzzleCompleted) {
+        this.changeRound();
+      }
+      //update DOM with that letter
+      //they spin again or solve puzzle
+    } else {
+      console.log("WRONG VOWEL!")
+      this.currentPlayer.decreaseCurrentPlayerScore();
       //They dont get any points 
       this.changeTurn();
       //change turn to next player
