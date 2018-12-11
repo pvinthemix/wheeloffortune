@@ -1,12 +1,13 @@
 class Game {
   constructor(player1, player2, player3) {
     this.players = this.createPlayers(player1, player2, player3);
-    this.round = 1;
+    this.round = 0;
     this.fivePuzzles = this.generateFivePuzzles();
     this.wheel = this.generateWheel();
     this.bonusRound = false;
     this.turn = 0;
     this.currentPlayer = this.players[this.turn];
+    this.guessedLetters = [];
   }
 
   resetGame() {
@@ -28,13 +29,15 @@ class Game {
 
 
   handleConsonantGuessed() {
-    debugger
-    let answerWordArray = game.fivePuzzles[0].currentPuzzle.correct_answer.split('');
     let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
-    if (answerWordArray.includes(letterGuessInput)) {
+    if (this.getCurrentPuzzle().answer.includes(letterGuessInput)) {
       console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
-      console.log(this.currentPlayer)
+      this.guessedLetters.push(letterGuessInput);
+      this.isPuzzleFinished();
+      if (this.getCurrentPuzzle().puzzleCompleted) {
+        this.changeRound();
+      }
       //update DOM with that letter
       //give points value to current player
       //they spin again or solve puzzle
@@ -42,10 +45,34 @@ class Game {
       console.log("WRONG!")
       //They dont get any points 
       this.changeTurn();
-      console.log(this.currentPlayer)
       //change turn to next player
     }
   }
+
+  getCurrentPuzzle() {
+    return this.fivePuzzles[this.round]
+  }
+
+  changeRound() {
+    this.round++;
+    if (this.round === 5) {
+      this.quitGame();
+    }
+  }
+
+  isPuzzleFinished() {
+    let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
+      if (this.guessedLetters.includes(currentLetter)) {
+        sum++
+      }
+      return sum;
+    }, 0)
+    if (numberOfMatchedLetters === this.getCurrentPuzzle().answer.length) {
+      this.getCurrentPuzzle().puzzleCompleted = true;
+    }
+  }
+
+
 
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
