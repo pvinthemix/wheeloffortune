@@ -86,7 +86,8 @@ class Game {
     if (this.turn === this.players.length) {
       this.turn = 0;
     }
-    this.currentPlayer = this.players[this.turn];
+    this.currentPlayer = this.players[this.turn]
+    domUpdates.showPlayersTurn();;
   }
 
   generateWheel() {
