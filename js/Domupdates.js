@@ -17,7 +17,7 @@ let domUpdates = {
   buyVowelScreen: document.querySelector('.buyvowel-screen'),
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   guessVowelInput: document.querySelector('.vowel-guess-input'),
-  guessLetterInput: document.querySelector('.letter-guess-input'),
+  consonantLetterInput: document.querySelector('.consonant-guess-input'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -44,15 +44,10 @@ let domUpdates = {
   
   resetGame() {
     game.resetGame();
-    game.round = 1;
-    game.playerIndex = 0;
     let letter = document.getElementsByClassName('letter');
       for(let i=0; i<letter.length; i++) {
         letter[i].classList.remove('green-font');
       }
-    this.showPuzzleCategory();
-    // player.bankAccount = 0;
-    // player.wallet = 0;
     game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
     this.showPuzzleCategory();
   },
@@ -71,11 +66,13 @@ let domUpdates = {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
+    game.handleVowelGuessed();
     this.showPlayerScore();
     this.guessVowelInput.value = '';
   },
 
   handleVowelGuessed() {
+    debugger
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
@@ -130,6 +127,15 @@ let domUpdates = {
     player3score.innerText = game.players[2].score;
   },
 
+  showGrandTotalScore() {
+    let player1GrandTotal = document.querySelector('.player1-grandtotal');
+    let player2GrandTotal = document.querySelector('.player2-grandtotal');
+    let player3GrandTotal = document.querySelector('.player3-grandtotal');
+    player1GrandTotal.innerText = game.players[0].grandTotal;
+    player2GrandTotal.innerText = game.players[1].grandTotal;
+    player3GrandTotal.innerText = game.players[2].grandTotal;
+  },
+
   showSpinValue() {
     wheel = new Wheel();
     wheel.generateCurrentSpinValue();
@@ -147,7 +153,7 @@ let domUpdates = {
 
   handleConsonantGuessed(e) {
     e.preventDefault();
-    let guessLetterInput = this.guessLetterInput.value.toLowerCase().trim();
+    let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
     if (this.vowels.includes(guessLetterInput)) {
       // TODO: change UI to some message instead of alert
       alert('PLEASE ENTER A CONSONANT!!!');
@@ -155,6 +161,7 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
     }
     game.handleConsonantGuessed();
+    this.consonantLetterInput = '';
     this.showPlayerScore();
   },
 

@@ -12,10 +12,13 @@ class Game {
 
   resetGame() {
     // keeps player names
-    // resets score and grand total
-    // resets game to round 1
-    // erases letters guessed
-    // erases spin value
+    this.round = 0;
+    this.bonusRound = false;
+    this.turn = 0;
+    this.currentPlayer.score = 0;
+    this.currentPlayer.grandTotal = 0;
+    this.guessedLetters = [];
+    this.wheel[0].currentSpinValue = 0;
   }
 
   quitGame() {
@@ -29,7 +32,7 @@ class Game {
 
 
   handleConsonantGuessed() {
-    let letterGuessInput = document.querySelector('.letter-guess-input').value.toUpperCase();
+    let letterGuessInput = document.querySelector('.consonant-guess-input').value.toUpperCase();
     if (this.getCurrentPuzzle().answer.includes(letterGuessInput)) {
       console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
@@ -49,12 +52,34 @@ class Game {
     }
   }
 
+  handleVowelGuessed() {
+    let vowelGuessInput = document.querySelector('.vowel-guess-input').value.toUpperCase();
+    if (this.getCurrentPuzzle().answer.includes(vowelGuessInput)) {
+      console.log("You got it the vowel right!");
+      this.currentPlayer.decreaseCurrentPlayerScore();
+      this.guessedLetters.push(letterGuessInput);
+      this.isPuzzleFinished();
+      if (this.getCurrentPuzzle().puzzleCompleted) {
+        this.changeRound();
+      }
+      //update DOM with that letter
+      //they spin again or solve puzzle
+    } else {
+      console.log("WRONG VOWEL!")
+      this.currentPlayer.decreaseCurrentPlayerScore();
+      //They dont get any points 
+      this.changeTurn();
+      //change turn to next player
+    }
+  }
+
   getCurrentPuzzle() {
     return this.fivePuzzles[this.round]
   }
 
   changeRound() {
     this.round++;
+    domUpdates.showGrandTotalScore()
     if (this.round === 5) {
       this.quitGame();
     }
@@ -73,11 +98,9 @@ class Game {
     }
   }
 
-
-
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    if (puzzleGuessInput == game.fivePuzzles[0].currentPuzzle.correct_answer.toUpperCase()) {
+    if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
       domUpdates.guessPuzzle()
     }
   }

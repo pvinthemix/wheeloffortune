@@ -10,14 +10,12 @@ class Player {
   }
 
   decreaseCurrentPlayerScore() {
-
+    this.score -= 100;
   }
 
-  
-
-  buyVowel() {
-
-  }
+  // buyVowel() {
+  //   console.log('in')
+  // }
 
   solvePuzzle() {
 
