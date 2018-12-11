@@ -22,6 +22,7 @@ let domUpdates = {
 
   startGame() {
     this.startScreen.classList.add('hidden');
+    this.showPlayersTurn();
   },
 
   quitGame() {
@@ -98,6 +99,25 @@ let domUpdates = {
   capitalizeFirstLetter(input) {
     let result = input.trim().toLowerCase();
     return result[0].toUpperCase() + result.substring(1);
+  },
+
+  showPlayersTurn() {
+    let player1container = document.querySelector('.player-one-container');
+    let player2container = document.querySelector('.player-two-container');
+    let player3container = document.querySelector('.player-three-container');
+    if(game.turn === 0) {
+      player2container.classList.remove('blue-background');
+      player3container.classList.remove('yellow-background');
+      player1container.classList.add('red-background');
+    } else if(game.turn === 1) {
+      player1container.classList.remove('red-background');
+      player3container.classList.remove('yellow-background');
+      player2container.classList.add('blue-background');
+    } else if(game.turn === 2) {
+      player1container.classList.remove('red-background');
+      player2container.classList.remove('blue-background');
+      player3container.classList.add('yellow-background');
+    }
   },
 
   showSpinValue() {

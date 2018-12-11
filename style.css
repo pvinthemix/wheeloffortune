@@ -16,6 +16,18 @@
   color: #289477;
 }
 
+.red-background {
+  background-color: #f29086;
+}
+
+.blue-background {
+  background-color: #b8b9ff;
+}
+
+.yellow-background {
+ background-color: #fffbb8;
+}
+
 .main {
   display: grid;
   width: 100%;
@@ -310,7 +322,6 @@ span.letter {
 .player-one-container,
 .player-two-container,
 .player-three-container {
-  background-color: white;
   border: solid black 2px;
   color: #5c128c;
   font-size: 18px;
