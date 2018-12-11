@@ -28,6 +28,10 @@
  background-color: #fffbb8;
 }
 
+.whiteBackground {
+  background-color: white;
+}
+
 .main {
   display: grid;
   width: 100%;

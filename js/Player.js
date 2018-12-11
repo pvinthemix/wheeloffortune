@@ -17,10 +17,6 @@ class Player {
   //   console.log('in')
   // }
 
-  solvePuzzle() {
-
-  }
-
   spinWheel() {
     
   }

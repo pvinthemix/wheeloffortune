@@ -22,6 +22,7 @@ let domUpdates = {
 
   startGame() {
     this.startScreen.classList.add('hidden');
+    this.showCurrentPuzzle();
     this.showPlayersTurn();
   },
 
@@ -83,7 +84,7 @@ let domUpdates = {
 
   guessPuzzleAnswer() {
     event.preventDefault();
-    alert("You got the correct answer")
+    game.guessPuzzleAnswer();
     this.solvePuzzleScreen.classList.add('hidden');
   },
 
@@ -150,6 +151,20 @@ let domUpdates = {
     puzzleCategoryOutput.innerText = roundPuzzleCategory;
   },
 
+  showCurrentPuzzle() {
+    debugger
+    // need the length of the puzzle answer for number of white boxes
+    // game.getCurrentPuzzle().currentPuzzle.total_number_of_letters
+    // insert letter into each box as inner text
+    // give CSS property of white background and white text
+    // if they guess the correct letter, letter changes to black text
+    let currentPuzzleLetterCount = game.getCurrentPuzzle().currentPuzzle.total_number_of_letters;
+    let whitePuzzleBox = document.querySelectorAll('puzzle-box');
+    for(let i = 0; i < currentPuzzleLetterCount; i++) {
+      whitePuzzleBox.classList.add('whiteBackground');
+    }
+  },
+
   handleConsonantGuessed(e) {
     e.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
@@ -160,7 +175,6 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
     }
     game.handleConsonantGuessed();
-    this.consonantLetterInput = '';
     this.showPlayerScore();
   },
 

@@ -101,8 +101,12 @@ class Game {
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
-      domUpdates.guessPuzzle()
+      alert('You got the right answer')
+      this.changeRound(); 
+    } else {
+      alert('You got the WRONG answer')
     }
+    domUpdates.guessPuzzle()
   }
 
   changeTurn() {
