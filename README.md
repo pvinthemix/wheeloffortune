@@ -7,7 +7,7 @@ $pin 2 !win is a take on the classic gameshow Wheel of Fortune. Players can test
 This web application was built using Object Oriented Principles in Javascript. Mocha and Chai are used for the testing framework and assertion library respectively.  
 
 Current Version: 
-![Current Version](https://imgur.com/IdGJcE1)
+![Current Version](https://i.imgur.com/IdGJcE1.png)
 
 ## Getting Started
 
