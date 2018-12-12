@@ -97,6 +97,10 @@ class Game {
 
   changeRound() {
     this.round++;
+    this.players[0].score = 0;
+    this.players[1].score = 0;
+    this.players[2].score = 0;
+    domUpdates.showPlayerScore();
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
@@ -106,6 +110,7 @@ class Game {
     }
     domUpdates.showRoundNumber();
     if (this.round === 5) {
+      this.round = 0;
       this.quitGame();
     }
   }
@@ -126,7 +131,7 @@ class Game {
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
-      //needs to add score to currentPlayer's grand total
+      this.players[this.turn].grandTotal += this.players[this.turn].score;
       alert('You got the right answer')
       this.changeRound(); 
     } else {
