@@ -155,14 +155,19 @@ let domUpdates = {
     // insert letter into each box as inner text
     // give CSS property of white background and white text
     // if they guess the correct letter, letter changes to black text
-    let currentPuzzleLetterCount = game.getCurrentPuzzle().currentPuzzle.total_number_of_letters;
+    let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     let greenPuzzleBoxes = document.getElementsByClassName('puzzle-box');
-    let whitePuzzleBoxes; 
-    for(let i = 0; i < currentPuzzleLetterCount; i++) {
+    for(let i = 0; i < splitAnswerArray.length; i++) {
+      if (splitAnswerArray[i] === ' ') {
+        greenPuzzleBoxes[i].classList.add('green-background')
+      }
+      if (splitAnswerArray[i] === '-') {
+        greenPuzzleBoxes[i].innerText = '-'
+      }
       greenPuzzleBoxes[i].classList.add('white-background');
     }
-    let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     splitAnswerArray.forEach((letter, index) => {
+      letter.split('')
       let rowBox = document.querySelector(`.row1-box${index + 1}`);  
         rowBox.innerText = letter
       })
@@ -178,6 +183,7 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
     }
     game.handleConsonantGuessed();
+    if(guessLEtterInput)
     this.showPlayerScore();
   },
 
