@@ -15,19 +15,33 @@ class Game {
     this.round = 0;
     this.bonusRound = false;
     this.turn = 0;
-    this.currentPlayer.score = 0;
-    this.currentPlayer.grandTotal = 0;
+    this.players[0].grandTotal = 0;
+    this.players[1].grandTotal = 0;
+    this.players[2].grandTotal = 0;
+    this.players[0].score = 0;
+    this.players[1].score = 0;
+    this.players[2].score = 0;
+    domUpdates.showPlayerScore();
+    domUpdates.showGrandTotalScore();
     this.guessedLetters = [];
     this.wheel[0].currentSpinValue = 0;
   }
 
   quitGame() {
-    this.players = [];
-    this.round = 1;
+    this.round = 0;
     this.fivePuzzles = [];
     this.wheel = [];
     this.bonusRound = false;
     this.turn = 0;
+    debugger
+    this.players[0].grandTotal = 0;
+    this.players[1].grandTotal = 0;
+    this.players[2].grandTotal = 0;
+    this.players[0].score = 0;
+    this.players[1].score = 0;
+    this.players[2].score = 0;
+    domUpdates.showPlayerScore();
+    domUpdates.showGrandTotalScore();
   }
 
   correctGuess(letter) {
