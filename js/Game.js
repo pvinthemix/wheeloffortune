@@ -97,6 +97,10 @@ class Game {
 
   changeRound() {
     this.round++;
+    this.players[0].score = 0;
+    this.players[1].score = 0;
+    this.players[2].score = 0;
+    domUpdates.showPlayerScore();
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
