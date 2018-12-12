@@ -52,42 +52,29 @@ class Game {
   handleConsonantGuessed() {
     let letterGuessInput = document.querySelector('.consonant-guess-input').value.toUpperCase();
     if (this.correctGuess(letterGuessInput)) {
-      console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
       this.guessedLetters.push(letterGuessInput);
       this.isPuzzleFinished();
       if (this.getCurrentPuzzle().puzzleCompleted) {
         this.changeRound();
       }
-      //update DOM with that letter
-      //give points value to current player
-      //they spin again or solve puzzle
     } else {
-      console.log("WRONG!")
-      //They dont get any points 
       this.changeTurn();
-      //change turn to next player
     }
   }
 
   handleVowelGuessed() {
     let vowelGuessInput = document.querySelector('.vowel-guess-input').value.toUpperCase();
     if (this.correctGuess(vowelGuessInput)) {
-      console.log("You got it the vowel right!");
       this.currentPlayer.decreaseCurrentPlayerScore();
       this.guessedLetters.push(vowelGuessInput);
       this.isPuzzleFinished();
       if (this.getCurrentPuzzle().puzzleCompleted) {
         this.changeRound();
       }
-      //update DOM with that letter
-      //they spin again or solve puzzle
     } else {
-      console.log("WRONG VOWEL!")
       this.currentPlayer.decreaseCurrentPlayerScore();
-      //They dont get any points 
       this.changeTurn();
-      //change turn to next player
     }
   }
 
