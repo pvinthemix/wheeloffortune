@@ -159,6 +159,7 @@ let domUpdates = {
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     for(let i = 0; i < splitAnswerArray.length; i++) {
       if (splitAnswerArray[i] === ' ') {
+        this.greenPuzzleBoxes[i].classList.remove('white-background')
         this.greenPuzzleBoxes[i].classList.add('green-background')
       }
       if (splitAnswerArray[i] === '-') {
