@@ -32,7 +32,7 @@ $ npm start
 We took as much advantage of planning time as we could, working from the wireframe below all throughout the project and utilizing a daily retro log (also linked below) as well as github issues to keep our group organized and on task. We also utilized a Github workflow to work on different branches and on different portions of the project. This helped us maximize time and incorperate additional functionality into the project we had not thought of at the start of the project.
 
 ### Wireframe:
-![Wireframe](https://imgur.com/iXriAwK)
+![Wireframe](https://i.imgur.com/iXriAwK.png)
 
 ### Link to Retro Log:
 [Retro Log](https://docs.google.com/document/d/1VIxN-ZS5nTbBKPsi9kkiQqgU-bOW4-ZF0-zh8nLCzmo/edit?usp=sharing)
