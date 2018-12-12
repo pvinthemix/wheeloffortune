@@ -3,7 +3,7 @@ class BonusWheel extends Wheel {
     super();
     this.bonusSpinValues = ['FERRARI', '$30,000', 'BOAT', 'TESLA', 'TRIP TO HAWAII', '$50,000'];
     this.bonusPlayer = null;
-    this.bonusWheelValue = generateCurrentBonusWheelSpinValue();
+    this.bonusWheelValue = this.generateCurrentBonusWheelSpinValue();
   }
 
 generateCurrentBonusWheelSpinValue() {
