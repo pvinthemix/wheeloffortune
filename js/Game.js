@@ -102,7 +102,6 @@ class Game {
     }
   }
 
-
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
       if (this.guessedLetters.includes(currentLetter)) {
@@ -120,12 +119,8 @@ class Game {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
       this.players[this.turn].grandTotal += this.players[this.turn].score;
-      alert('You got the right answer')
       this.changeRound(); 
-    } else {
-      alert('You got the WRONG answer')
     }
-    // domUpdates.guessPuzzle()
   }
 
   changeTurn() {

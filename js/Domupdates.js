@@ -89,6 +89,12 @@ let domUpdates = {
 
   guessPuzzleAnswer() {
     event.preventDefault();
+    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
+    if (puzzleGuessInput == game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
+      this.guessMessage.innerText = '- You Solved the Puzzle! -';
+    } else {
+      this.guessMessage.innerText = '- Sorry, incorrect answer -';
+    }
     game.guessPuzzleAnswer();
     this.solvePuzzleScreen.classList.add('hidden');
   },
