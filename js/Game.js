@@ -121,6 +121,7 @@ class Game {
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
+      //needs to add score to currentPlayer's grand total
       alert('You got the right answer')
       this.changeRound(); 
     } else {
