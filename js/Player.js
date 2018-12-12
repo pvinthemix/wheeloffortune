@@ -6,10 +6,10 @@ class Player {
   }
 
   increaseCurrentPlayerScore() {
-    if(wheel.currentSpinValue === 'BANKRUPT') {
+    if (wheel.currentSpinValue === 'BANKRUPT') {
       this.score = 0;
     } else {
-    this.score += wheel.currentSpinValue;
+      this.score += wheel.currentSpinValue;
     }
   }
 
@@ -17,13 +17,6 @@ class Player {
     this.score -= 100;
   }
 
-  // buyVowel() {
-  //   console.log('in')
-  // }
-
-  spinWheel() {
-    
-  }
 }
 
 if (typeof module !== 'undefined') {

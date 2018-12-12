@@ -1,6 +1,6 @@
 let game;
-let puzzle;
-let player;
+// let puzzle;
+// let player;
 let wheel;
 
 
@@ -47,9 +47,9 @@ let domUpdates = {
   resetGame() {
     game.resetGame();
     let letter = document.getElementsByClassName('letter');
-      for(let i=0; i<letter.length; i++) {
-        letter[i].classList.remove('green-font');
-      }
+    for(let i=0; i<letter.length; i++) {
+      letter[i].classList.remove('green-font');
+    }
     game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
     this.showPuzzleCategory();
   },
@@ -77,7 +77,6 @@ let domUpdates = {
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     const correctGuess = game.correctGuess(guessVowelInput.toUpperCase());
     if (this.vowels.includes(guessVowelInput)) {
-      // TODO: change UI to some message instead of alert
       this.greyOut(guessVowelInput);
       this.revealLetters(correctGuess, guessVowelInput);
     } else {
@@ -107,7 +106,7 @@ let domUpdates = {
     if (game.round === 4) {
       roundNumber.innerText = `BONUS ROUND`;
     } else {
-    roundNumber.innerText = `ROUND ${game.round + 1}`;
+      roundNumber.innerText = `ROUND ${game.round + 1}`;
     }
   },
 
@@ -115,15 +114,15 @@ let domUpdates = {
     let player1container = document.querySelector('.player-one-container');
     let player2container = document.querySelector('.player-two-container');
     let player3container = document.querySelector('.player-three-container');
-    if(game.turn === 0) {
+    if (game.turn === 0) {
       player2container.classList.remove('blue-background');
       player3container.classList.remove('yellow-background');
       player1container.classList.add('red-background');
-    } else if(game.turn === 1) {
+    } else if (game.turn === 1) {
       player1container.classList.remove('red-background');
       player3container.classList.remove('yellow-background');
       player2container.classList.add('blue-background');
-    } else if(game.turn === 2) {
+    } else if (game.turn === 2) {
       player1container.classList.remove('red-background');
       player2container.classList.remove('blue-background');
       player3container.classList.add('yellow-background');
@@ -164,10 +163,6 @@ let domUpdates = {
   },
 
   showCurrentPuzzle() {
-    // insert letter into each box as inner text
-    // give CSS property of white background and white text
-    // if they guess the correct letter, letter changes to black text
-    
     console.log(game.getCurrentPuzzle().currentPuzzle.correct_answer)
 
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
@@ -192,8 +187,8 @@ let domUpdates = {
     })
   },
  
-  handleConsonantGuessed(e) {
-    e.preventDefault();
+  handleConsonantGuessed() {
+    event.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
     let correctGuess = game.correctGuess(guessLetterInput.toUpperCase());
     if (this.vowels.includes(guessLetterInput)) {

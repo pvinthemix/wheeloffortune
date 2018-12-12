@@ -6,7 +6,7 @@ class BonusWheel extends Wheel {
     this.bonusWheelValue = this.generateCurrentBonusWheelSpinValue();
   }
 
-generateCurrentBonusWheelSpinValue() {
+  generateCurrentBonusWheelSpinValue() {
     const randomIndex = Math.floor(Math.random() * 6);
     this.bonusWheelValue = this.bonusSpinValues[randomIndex];
     return this.bonusWheelValue;
