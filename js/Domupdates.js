@@ -194,10 +194,9 @@ let domUpdates = {
       alert('PLEASE ENTER A CONSONANT!!!');
     } else {
       this.greyOut(guessLetterInput);
+      game.handleConsonantGuessed();
+      this.showPlayerScore();
     }
-    game.handleConsonantGuessed();
-    if(guessLEtterInput)
-    this.showPlayerScore();
   },
 
   greyOut(letter) {
