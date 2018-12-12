@@ -82,6 +82,7 @@ class Game {
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
+    domUpdates.showRoundNumber();
     if (this.round === 5) {
       this.quitGame();
     }

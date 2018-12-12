@@ -100,6 +100,11 @@ let domUpdates = {
     return result[0].toUpperCase() + result.substring(1);
   },
 
+  showRoundNumber() {
+    let roundNumber = document.querySelector('.round-number-text');
+    roundNumber.innerText = `ROUND ${game.round + 1}`
+  },
+
   showPlayersTurn() {
     let player1container = document.querySelector('.player-one-container');
     let player2container = document.querySelector('.player-two-container');
