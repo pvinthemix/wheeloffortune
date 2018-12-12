@@ -93,7 +93,7 @@ class Game {
     domUpdates.showCurrentPuzzle();
     if (this.round === 4) {
       this.bonusRound = true;
-      let bonuswheel = new BonusWheel();
+      const bonusWheel = new BonusWheel();
     }
     domUpdates.showRoundNumber();
     if (this.round === 5) {
