@@ -23,6 +23,7 @@ class Game {
     this.players[2].score = 0;
     domUpdates.showPlayerScore();
     domUpdates.showGrandTotalScore();
+    domUpdates.showRoundNumber();
     this.guessedLetters = [];
     this.wheel[0].currentSpinValue = 0;
   }
@@ -33,7 +34,6 @@ class Game {
     this.wheel = [];
     this.bonusRound = false;
     this.turn = 0;
-    debugger
     this.players[0].grandTotal = 0;
     this.players[1].grandTotal = 0;
     this.players[2].grandTotal = 0;
@@ -41,6 +41,7 @@ class Game {
     this.players[1].score = 0;
     this.players[2].score = 0;
     domUpdates.showPlayerScore();
+    domUpdates.showRoundNumber();
     domUpdates.showGrandTotalScore();
   }
 
@@ -99,6 +100,10 @@ class Game {
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
+    if (this.round === 4) {
+      this.bonusRound = true;
+      let bonuswheel = new BonusWheel();
+    }
     domUpdates.showRoundNumber();
     if (this.round === 5) {
       this.quitGame();
@@ -121,6 +126,7 @@ class Game {
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
+      //needs to add score to currentPlayer's grand total
       alert('You got the right answer')
       this.changeRound(); 
     } else {

@@ -104,7 +104,11 @@ let domUpdates = {
 
   showRoundNumber() {
     let roundNumber = document.querySelector('.round-number-text');
-    roundNumber.innerText = `ROUND ${game.round + 1}`
+    if (game.round === 4) {
+      roundNumber.innerText = `BONUS ROUND`;
+    } else {
+    roundNumber.innerText = `ROUND ${game.round + 1}`;
+    }
   },
 
   showPlayersTurn() {
