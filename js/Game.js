@@ -115,6 +115,7 @@ class Game {
     }
   }
 
+
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
       if (this.guessedLetters.includes(currentLetter)) {

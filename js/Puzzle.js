@@ -5,9 +5,6 @@ class Puzzle {
     this.answer = this.currentPuzzle.correct_answer.toUpperCase().replace(' ', '').split('')
   }
 
-  // keep track of revealed letters already guessed in current puzzle
-  // If someone guesses already guessed letter, the player could get points
-  
   generatePuzzle(round) {
     switch (round) {
     case 1:
