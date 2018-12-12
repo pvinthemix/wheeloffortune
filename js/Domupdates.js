@@ -45,7 +45,7 @@ let domUpdates = {
   resetGame() {
     game.resetGame();
     let letter = document.getElementsByClassName('letter');
-    for(let i=0; i<letter.length; i++) {
+    for (let i = 0; i < letter.length; i++) {
       letter[i].classList.remove('green-font');
     }
     game = new Game(this.player1Name.innerText, this.player2Name.innerText, this.player3Name.innerText);
@@ -173,6 +173,7 @@ let domUpdates = {
 
   showCurrentPuzzle() {
     console.log(game.getCurrentPuzzle().currentPuzzle.correct_answer)
+    
 
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     splitAnswerArray.forEach((letter, index) => {
