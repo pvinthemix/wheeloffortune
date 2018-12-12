@@ -74,13 +74,14 @@ let domUpdates = {
   },
 
   handleVowelGuessed() {
+    let guessMessage = document.querySelector('.guess-message');
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     const correctGuess = game.correctGuess(guessVowelInput.toUpperCase());
     if (this.vowels.includes(guessVowelInput)) {
       this.greyOut(guessVowelInput);
       this.revealLetters(correctGuess, guessVowelInput);
     } else {
-      alert('PLEASE ENTER A VOWEL!!!');
+      guessMessage.innerText = '- Please enter a VOWEL -';
     }
   },
 
