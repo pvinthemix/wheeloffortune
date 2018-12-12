@@ -18,6 +18,7 @@ let domUpdates = {
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   guessVowelInput: document.querySelector('.vowel-guess-input'),
   consonantLetterInput: document.querySelector('.consonant-guess-input'),
+  greenPuzzleBoxes: document.getElementsByClassName('puzzle-box'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -156,18 +157,17 @@ let domUpdates = {
     // give CSS property of white background and white text
     // if they guess the correct letter, letter changes to black text
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
-    let greenPuzzleBoxes = document.getElementsByClassName('puzzle-box');
     for(let i = 0; i < splitAnswerArray.length; i++) {
       if (splitAnswerArray[i] === ' ') {
-        greenPuzzleBoxes[i].classList.add('green-background')
+        this.greenPuzzleBoxes[i].classList.add('green-background')
       }
       if (splitAnswerArray[i] === '-') {
-        greenPuzzleBoxes[i].innerText = '-'
+        this.greenPuzzleBoxes[i].innerText = '-'
       }
       if (splitAnswerArray[i] === '&') {
-        greenPuzzleBoxes[i].innerText = '&'
+        this.greenPuzzleBoxes[i].innerText = '&'
       }
-      greenPuzzleBoxes[i].classList.add('white-background');
+      this.greenPuzzleBoxes[i].classList.add('white-background');
     }
     splitAnswerArray.forEach((letter, index) => {
       if (index  < 12) {
@@ -177,18 +177,17 @@ let domUpdates = {
         let rowBox = document.querySelector(`.row2-box${index - 11}`);
         rowBox.innerText = letter
       }
-  })
-},
-
-  removePuzzle() {
-    let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
-    let greenPuzzleBoxes = document.getElementsByClassName('puzzle-box');
-    for (let i = 0; i < splitAnswerArray.length; i++) {
-      greenPuzzleBoxes.classList.add('white-background')
-      greenPuzzleBoxes.innerText = ''
-    }
+    })
   },
 
+  resetDefaultGreenBoxes() {
+    [...this.greenPuzzleBoxes].forEach((box) => {
+      box.classList.remove('green-background');
+      box.classList.remove('white-background');
+      box.innerText = '';
+    })
+  },
+ 
   handleConsonantGuessed(e) {
     e.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();

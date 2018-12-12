@@ -446,10 +446,10 @@ span.letter,
   line-height: 50%;
 }
 
-.white-background {
-  background-color: white;
-}
-
 .green-background {
   background-color: green
+}
+
+.white-background {
+  background-color: white;
 }

@@ -79,6 +79,7 @@ class Game {
 
   changeRound() {
     this.round++;
+    domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
     if (this.round === 5) {
@@ -96,7 +97,6 @@ class Game {
     if (numberOfMatchedLetters === this.getCurrentPuzzle().answer.length) {
       this.getCurrentPuzzle().puzzleCompleted = true;
       domUpdates.showPuzzleCategory();
-      domUpdates.removePuzzle();
     }
   }
 
@@ -108,7 +108,7 @@ class Game {
     } else {
       alert('You got the WRONG answer')
     }
-    domUpdates.guessPuzzle()
+    // domUpdates.guessPuzzle()
   }
 
   changeTurn() {
