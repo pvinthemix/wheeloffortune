@@ -1,7 +1,7 @@
 class Wheel {
   constructor() {
     this.spinValues = this.generateSpinValues();
-    this.currentSpinValue = null;
+    this.currentSpinValue = this.generateCurrentSpinValue();
   }
 
   generateSpinValues() {

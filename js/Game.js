@@ -106,6 +106,7 @@ class Game {
     }
     domUpdates.showRoundNumber();
     if (this.round === 5) {
+      this.round = 0;
       this.quitGame();
     }
   }
