@@ -75,9 +75,11 @@ let domUpdates = {
 
   handleVowelGuessed() {
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
+    const correctGuess = game.correctGuess(guessVowelInput.toUpperCase());
     if (this.vowels.includes(guessVowelInput)) {
       // TODO: change UI to some message instead of alert
       this.greyOut(guessVowelInput);
+      this.revealLetters(correctGuess, guessVowelInput);
     } else {
       alert('PLEASE ENTER A VOWEL!!!');
     }
@@ -189,22 +191,25 @@ let domUpdates = {
   handleConsonantGuessed(e) {
     e.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
-    let correctGuess = game.getCurrentPuzzle().answer.includes(guessLetterInput.toUpperCase());
-    if(correctGuess) {
-      [...this.greenPuzzleBoxes].filter((currentBox) => {
-        return currentBox.innerText === guessLetterInput.toUpperCase();
-      }).forEach((box) => {
-        box.classList.add('orange-text');
-      })
-    }
+    let correctGuess = game.correctGuess(guessLetterInput.toUpperCase());
     if (this.vowels.includes(guessLetterInput)) {
       // TODO: change UI to some message instead of alert
       alert('PLEASE ENTER A CONSONANT!!!');
     } else {
+      this.revealLetters(correctGuess, guessLetterInput);
       this.greyOut(guessLetterInput);
       game.handleConsonantGuessed();
       this.showPlayerScore();
-      
+    }
+  },
+
+  revealLetters(correctGuess, letter) {
+    if (correctGuess) {
+      [...this.greenPuzzleBoxes].filter((currentBox) => {
+        return currentBox.innerText === letter.toUpperCase();
+      }).forEach((box) => {
+        box.classList.add('orange-text');
+      })
     }
   },
 

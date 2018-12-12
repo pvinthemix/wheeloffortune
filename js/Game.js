@@ -30,10 +30,13 @@ class Game {
     this.turn = 0;
   }
 
+  correctGuess(letter) {
+    return this.getCurrentPuzzle().answer.includes(letter);
+  }
 
   handleConsonantGuessed() {
     let letterGuessInput = document.querySelector('.consonant-guess-input').value.toUpperCase();
-    if (this.getCurrentPuzzle().answer.includes(letterGuessInput)) {
+    if (this.correctGuess(letterGuessInput)) {
       console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
       this.guessedLetters.push(letterGuessInput);
@@ -54,10 +57,10 @@ class Game {
 
   handleVowelGuessed() {
     let vowelGuessInput = document.querySelector('.vowel-guess-input').value.toUpperCase();
-    if (this.getCurrentPuzzle().answer.includes(vowelGuessInput)) {
+    if (this.correctGuess(vowelGuessInput)) {
       console.log("You got it the vowel right!");
       this.currentPlayer.decreaseCurrentPlayerScore();
-      this.guessedLetters.push(letterGuessInput);
+      this.guessedLetters.push(vowelGuessInput);
       this.isPuzzleFinished();
       if (this.getCurrentPuzzle().puzzleCompleted) {
         this.changeRound();
