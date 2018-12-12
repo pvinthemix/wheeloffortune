@@ -52,42 +52,29 @@ class Game {
   handleConsonantGuessed() {
     let letterGuessInput = document.querySelector('.consonant-guess-input').value.toUpperCase();
     if (this.correctGuess(letterGuessInput)) {
-      console.log("You got it!")
       this.currentPlayer.increaseCurrentPlayerScore();
       this.guessedLetters.push(letterGuessInput);
       this.isPuzzleFinished();
       if (this.getCurrentPuzzle().puzzleCompleted) {
         this.changeRound();
       }
-      //update DOM with that letter
-      //give points value to current player
-      //they spin again or solve puzzle
     } else {
-      console.log("WRONG!")
-      //They dont get any points 
       this.changeTurn();
-      //change turn to next player
     }
   }
 
   handleVowelGuessed() {
     let vowelGuessInput = document.querySelector('.vowel-guess-input').value.toUpperCase();
     if (this.correctGuess(vowelGuessInput)) {
-      console.log("You got it the vowel right!");
       this.currentPlayer.decreaseCurrentPlayerScore();
       this.guessedLetters.push(vowelGuessInput);
       this.isPuzzleFinished();
       if (this.getCurrentPuzzle().puzzleCompleted) {
         this.changeRound();
       }
-      //update DOM with that letter
-      //they spin again or solve puzzle
     } else {
-      console.log("WRONG VOWEL!")
       this.currentPlayer.decreaseCurrentPlayerScore();
-      //They dont get any points 
       this.changeTurn();
-      //change turn to next player
     }
   }
 
@@ -115,7 +102,6 @@ class Game {
     }
   }
 
-
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
       if (this.guessedLetters.includes(currentLetter)) {
@@ -133,12 +119,8 @@ class Game {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
       this.players[this.turn].grandTotal += this.players[this.turn].score;
-      alert('You got the right answer')
       this.changeRound(); 
-    } else {
-      alert('You got the WRONG answer')
     }
-    // domUpdates.guessPuzzle()
   }
 
   changeTurn() {

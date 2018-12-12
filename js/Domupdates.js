@@ -1,12 +1,9 @@
 let game;
-// let puzzle;
-// let player;
 let wheel;
 
 
 // domUpdates Object
 let domUpdates = {
-  // NOTE: setting up key-value pairs for querySelectors
   player1Name: document.querySelector('.player1-name'),
   player2Name: document.querySelector('.player2-name'),
   player3Name: document.querySelector('.player3-name'),
@@ -18,6 +15,7 @@ let domUpdates = {
   solvePuzzleScreen: document.querySelector('.solvepuzzle-screen'),
   guessVowelInput: document.querySelector('.vowel-guess-input'),
   consonantLetterInput: document.querySelector('.consonant-guess-input'),
+  guessMessage: document.querySelector('.guess-message'),
   greenPuzzleBoxes: document.getElementsByClassName('puzzle-box'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
@@ -76,16 +74,27 @@ let domUpdates = {
   handleVowelGuessed() {
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
     const correctGuess = game.correctGuess(guessVowelInput.toUpperCase());
+    if (correctGuess) {
+      this.guessMessage.innerText = '- CORRECT ANSWER! -';
+    } else {
+      this.guessMessage.innerText = '- Sorry, incorrect answer -';
+    }
     if (this.vowels.includes(guessVowelInput)) {
       this.greyOut(guessVowelInput);
       this.revealLetters(correctGuess, guessVowelInput);
     } else {
-      alert('PLEASE ENTER A VOWEL!!!');
+      this.guessMessage.innerText = '- Please enter a VOWEL -';
     }
   },
 
   guessPuzzleAnswer() {
     event.preventDefault();
+    const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
+    if (puzzleGuessInput == game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
+      this.guessMessage.innerText = '- You Solved the Puzzle! -';
+    } else {
+      this.guessMessage.innerText = '- Sorry, incorrect answer -';
+    }
     game.guessPuzzleAnswer();
     this.solvePuzzleScreen.classList.add('hidden');
   },
@@ -191,9 +200,13 @@ let domUpdates = {
     event.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
     let correctGuess = game.correctGuess(guessLetterInput.toUpperCase());
+    if (correctGuess) {
+      this.guessMessage.innerText = '- CORRECT ANSWER! -';
+    } else {
+      this.guessMessage.innerText = '- Sorry, incorrect answer -';
+    }
     if (this.vowels.includes(guessLetterInput)) {
-      // TODO: change UI to some message instead of alert
-      alert('PLEASE ENTER A CONSONANT!!!');
+      this.guessMessage.innerText = '- Please enter a CONSONANT -';
     } else {
       this.revealLetters(correctGuess, guessLetterInput);
       this.greyOut(guessLetterInput);
@@ -220,9 +233,6 @@ let domUpdates = {
 // *Event Listeners*
 document.querySelector('.reset-game-btn').addEventListener('click', domUpdates.resetGame.bind(domUpdates));
 document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.quitGame.bind(domUpdates));
-// NOTE: 
-  // If we used ES5 syntax without binding, this would refer to the HTML button element (where it was called)
-  // If we used ES6 arrow syntax, this would refer to the global window object
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue.bind(domUpdates));
 document.querySelector('.letter-guess-submit-btn').addEventListener('click', domUpdates.handleConsonantGuessed.bind(domUpdates));
 document.querySelector('.buy-vowel-btn').addEventListener('click', domUpdates.popupBuyVowelScreen.bind(domUpdates));
