@@ -131,7 +131,7 @@ class Game {
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
     if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
-      this.players[this.turn].grandTotal = this.players[this.turn].score;
+      this.players[this.turn].grandTotal += this.players[this.turn].score;
       alert('You got the right answer')
       this.changeRound(); 
     } else {
