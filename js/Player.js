@@ -6,7 +6,11 @@ class Player {
   }
 
   increaseCurrentPlayerScore() {
+    if(wheel.currentSpinValue === 'BANKRUPT') {
+      this.score = 0;
+    } else {
     this.score += wheel.currentSpinValue;
+    }
   }
 
   decreaseCurrentPlayerScore() {
