@@ -189,6 +189,14 @@ let domUpdates = {
   handleConsonantGuessed(e) {
     e.preventDefault();
     let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
+    let correctGuess = game.getCurrentPuzzle().answer.includes(guessLetterInput.toUpperCase());
+    if(correctGuess) {
+      [...this.greenPuzzleBoxes].filter((currentBox) => {
+        return currentBox.innerText === guessLetterInput.toUpperCase();
+      }).forEach((box) => {
+        box.classList.add('orange-text');
+      })
+    }
     if (this.vowels.includes(guessLetterInput)) {
       // TODO: change UI to some message instead of alert
       alert('PLEASE ENTER A CONSONANT!!!');
@@ -196,6 +204,7 @@ let domUpdates = {
       this.greyOut(guessLetterInput);
       game.handleConsonantGuessed();
       this.showPlayerScore();
+      
     }
   },
 
