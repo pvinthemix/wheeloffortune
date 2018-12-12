@@ -96,6 +96,7 @@ class Game {
     if (numberOfMatchedLetters === this.getCurrentPuzzle().answer.length) {
       this.getCurrentPuzzle().puzzleCompleted = true;
       domUpdates.showPuzzleCategory();
+      domUpdates.removePuzzle();
     }
   }
 

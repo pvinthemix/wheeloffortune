@@ -164,13 +164,29 @@ let domUpdates = {
       if (splitAnswerArray[i] === '-') {
         greenPuzzleBoxes[i].innerText = '-'
       }
+      if (splitAnswerArray[i] === '&') {
+        greenPuzzleBoxes[i].innerText = '&'
+      }
       greenPuzzleBoxes[i].classList.add('white-background');
     }
     splitAnswerArray.forEach((letter, index) => {
-      letter.split('')
-      let rowBox = document.querySelector(`.row1-box${index + 1}`);  
+      if (index  < 12) {
+        let rowBox = document.querySelector(`.row1-box${index + 1}`);  
         rowBox.innerText = letter
-      })
+      } else if (index < 26) {
+        let rowBox = document.querySelector(`.row2-box${index - 11}`);
+        rowBox.innerText = letter
+      }
+  })
+},
+
+  removePuzzle() {
+    let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
+    let greenPuzzleBoxes = document.getElementsByClassName('puzzle-box');
+    for (let i = 0; i < splitAnswerArray.length; i++) {
+      greenPuzzleBoxes.classList.add('white-background')
+      greenPuzzleBoxes.innerText = ''
+    }
   },
 
   handleConsonantGuessed(e) {
