@@ -156,35 +156,27 @@ let domUpdates = {
     // insert letter into each box as inner text
     // give CSS property of white background and white text
     // if they guess the correct letter, letter changes to black text
+    
+    console.log(game.getCurrentPuzzle().currentPuzzle.correct_answer)
+
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
-    for(let i = 0; i < splitAnswerArray.length; i++) {
-      if (splitAnswerArray[i] === ' ') {
-        this.greenPuzzleBoxes[i].classList.remove('white-background')
-        this.greenPuzzleBoxes[i].classList.add('green-background')
-      }
-      if (splitAnswerArray[i] === '-') {
-        this.greenPuzzleBoxes[i].innerText = '-'
-      }
-      if (splitAnswerArray[i] === '&') {
-        this.greenPuzzleBoxes[i].innerText = '&'
-      }
-      this.greenPuzzleBoxes[i].classList.add('white-background');
-    }
     splitAnswerArray.forEach((letter, index) => {
-      if (index  < 12) {
-        let rowBox = document.querySelector(`.row1-box${index + 1}`);  
-        rowBox.innerText = letter
-      } else if (index < 26) {
-        let rowBox = document.querySelector(`.row2-box${index - 11}`);
-        rowBox.innerText = letter
-      }
-    })
+      if (letter === ' ') {
+        this.greenPuzzleBoxes[index].classList.remove('white-background')
+        this.greenPuzzleBoxes[index].classList.add('green-background')
+      } else if (letter === '-' || letter === '&' || letter === '\'') {
+        this.greenPuzzleBoxes[index].classList.add('orange-text');
+      } 
+      this.greenPuzzleBoxes[index].innerText = letter;
+      this.greenPuzzleBoxes[index].classList.add('white-background');
+    }) 
   },
 
   resetDefaultGreenBoxes() {
     [...this.greenPuzzleBoxes].forEach((box) => {
       box.classList.remove('green-background');
       box.classList.remove('white-background');
+      box.classList.remove('orange-text');
       box.innerText = '';
     })
   },

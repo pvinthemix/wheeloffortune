@@ -325,6 +325,7 @@
 .puzzle-box {
   background-color: #289477;
   border: black solid 2px;
+  color: white;
   height: 72px;
   margin-left: 5px;
   margin-right: 5px;
@@ -452,4 +453,9 @@ span.letter,
 
 .green-background {
   background-color: #289477;
+}
+
+.orange-text {
+  color: orange;
+  font-size: 32px;
 }
