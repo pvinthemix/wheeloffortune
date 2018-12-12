@@ -8,6 +8,7 @@ global.Player = require('../js/Player.js');
 global.Puzzle = require('../js/Puzzle.js');
 global.Wheel = require('../js/Wheel.js');
 global.data = require('../js/dataset.js');
+// global.domUpdates = require('../js/Domupdates.js')
 
 describe('Game', function () {
   it('should have 3 players', function () {
@@ -15,19 +16,16 @@ describe('Game', function () {
     const expected = [
       { 
         name: "Terry",
-        turn: false,
         grandTotal: 0,
         score: 0
       },
       {
         name: "Jean",
-        turn: false,
         grandTotal: 0,
         score: 0 
       },
       {
         name: "Blake",
-        turn: false,
         grandTotal: 0,
         score: 0  
       },
@@ -39,7 +37,7 @@ describe('Game', function () {
 
   it('should start on round 1', function () {
     let game = new Game();
-    expect(game.round).to.equal(1);
+    expect(game.round).to.equal(0);
   });
 
   it('should not be a bonus round upon first instantiation', function () {
@@ -56,7 +54,6 @@ describe('Game', function () {
     let game = new Game("Brian", "John");
     const expectedPlayer1 = {
       name: "Brian",
-      turn: false,
       grandTotal: 0,
       score: 0  
     }
@@ -66,7 +63,6 @@ describe('Game', function () {
     game.changeTurn();
     const expectedPlayer2 = {
       name: "John",
-      turn: false,
       grandTotal: 0,
       score: 0
     }
