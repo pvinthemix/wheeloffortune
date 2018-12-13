@@ -187,7 +187,7 @@ let domUpdates = {
       } else if (bonusRound && this.bonusRoundHints.includes(letter)) {
         this.greenPuzzleBoxes[index].classList.add('orange-text');
         this.greyOut(letter);
-        this.guessMessage.innerText = '-- GUESS 3 CONSONANTS & 1 VOWEL --'
+        this.guessMessage.innerText = '-- SPIN BONUS WHEEL 1 TIME. GUESS 3 CONSONANTS & 1 VOWEL --'
       }
       this.greenPuzzleBoxes[index].innerText = letter;
       this.greenPuzzleBoxes[index].classList.add('white-background');
