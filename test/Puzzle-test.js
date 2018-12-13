@@ -4,7 +4,7 @@ const Puzzle = require('../js/Puzzle.js');
 
 describe('Puzzle', function () {
   it('should check to see if the puzzle has been completed', function () {
-    var puzzle = new Puzzle();
+    var puzzle = new Puzzle(1);
     expect(puzzle.puzzleCompleted).to.equal(false);
   });
 
@@ -31,7 +31,7 @@ describe('Puzzle', function () {
 
   it('can check submitted answer against current puzzle', function() {
     var puzzle = new Puzzle(1);
-    var correctAnswer = puzzle.currentPuzzle.correct_answer;
+    var correctAnswer = puzzle.answer;
     var wrongAnswer = 'wrong answer';
     expect(puzzle.checkAnswer(correctAnswer)).to.equal(true);
     expect(puzzle.checkAnswer(wrongAnswer)).to.equal(false);

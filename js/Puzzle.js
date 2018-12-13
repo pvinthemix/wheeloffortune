@@ -5,6 +5,7 @@ class Puzzle {
     this.answer = this.currentPuzzle.correct_answer.toUpperCase().replace(' ', '').split('')
   }
 
+
   generatePuzzle(round) {
     switch (round) {
     case 1:
@@ -28,7 +29,7 @@ class Puzzle {
   }
 
   checkAnswer(submitedAnswer) {
-    return this.currentPuzzle.correct_answer === submitedAnswer; 
+    return this.answer === submitedAnswer; 
   }
 }
 

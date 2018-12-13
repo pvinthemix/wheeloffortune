@@ -8,6 +8,7 @@ global.Player = require('../js/Player.js');
 global.Puzzle = require('../js/Puzzle.js');
 global.Wheel = require('../js/Wheel.js');
 global.data = require('../js/dataset.js');
+global.BonusWheel = require('../js/BonusWheel.js');
 global.document = {
   querySelector: () => { 
     return {
