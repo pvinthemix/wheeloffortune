@@ -3,18 +3,19 @@ const expect = chai.expect;
 const Puzzle = require('../js/Puzzle.js');
 
 describe('Puzzle', function () {
+  var puzzle;
+  beforeEach(function () {
+    puzzle = new Puzzle(1);
+  });
   it('should check to see if the puzzle has been completed', function () {
-    var puzzle = new Puzzle(1);
     expect(puzzle.puzzleCompleted).to.equal(false);
   });
 
   it('should assign a puzzle randomly upon instantiation', function() {
-    var puzzle = new Puzzle(1);
     expect(puzzle.currentPuzzle).to.not.equal(null);
   })
 
   it('should have certain properties after puzzle is assigned', function() {
-    var puzzle = new Puzzle(1);
     expect(puzzle.currentPuzzle).to.have.property("category");
     expect(puzzle.currentPuzzle.category).a('string');
     expect(puzzle.currentPuzzle).to.have.property("correct_answer");
@@ -30,7 +31,6 @@ describe('Puzzle', function () {
   })
 
   it('can check submitted answer against current puzzle', function() {
-    var puzzle = new Puzzle(1);
     var correctAnswer = puzzle.answer;
     var wrongAnswer = 'wrong answer';
     expect(puzzle.checkAnswer(correctAnswer)).to.equal(true);

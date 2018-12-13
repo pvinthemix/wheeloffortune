@@ -24,10 +24,10 @@ global.document = {
 global.domUpdates = require('../js/Domupdates.js')
 
 describe('Game', function () {
-  
+  var game;
   beforeEach(() => {
     chai.spy.on(global.domUpdates, 'showPlayersTurn', () => true);
-
+    game = new Game();
   });
 
   afterEach(() => {
@@ -60,17 +60,14 @@ describe('Game', function () {
   });
 
   it('should start on round 1', function () {
-    let game = new Game();
     expect(game.round).to.equal(0);
   });
 
   it('should not be a bonus round upon first instantiation', function () {
-    let game = new Game();
     expect(game.bonusRound).to.equal(false);
   });
 
   it('should start with player 1, which is playerIndex of 0', function () {
-    let game = new Game();
     expect(game.turn).to.equal(0);
   });
 
@@ -95,32 +92,35 @@ describe('Game', function () {
   });
 
   it('should generate a new wheel upon invocation', function () {
-    let game = new Game();
     game.generateWheel();
     expect(game.wheel).to.be.an.instanceOf(Array);
     expect(game.wheel[0]).to.be.an.instanceOf(Wheel);
   });
 
   it('should generate 5 new random puzzles upon invocation', function () {
-    let game = new Game();
     game.generateFivePuzzles();
     expect(game.fivePuzzles.length).to.equal(5);
   });
 
   it('should generate 3 new players upon invocation', function () {
-    let game = new Game();
     game.createPlayers();
     expect(game.players.length).to.equal(3);
   });
 
-  it('will quit game', function () {
-    let game = new Game();
-    game.quitGame();
-    expect(game.players).to.deep.equal([]);
-    expect(game.round).to.equal(1);
-    expect(game.fivePuzzles).to.deep.equal([]);
-    expect(game.wheel).to.deep.equal([]);
-    expect(game.bonusRound).to.equal(false);
-    expect(game.turn).to.equal(0);
+  it('will generate bonus wheel', function () {
+    let bonusWheel = new BonusWheel();
+    game.generateBonusWheel();
+    expect(bonusWheel).to.be.an.instanceOf(BonusWheel);
   });
+
+  it('will check for correct guess in puzzle', function () {
+    let letter = 't';
+    game.correctGuess(letter);
+    expect(game.getCurrentPuzzle().answer.includes(letter)).to.equal(false);
+  })
+
+  it('will return the player with the highest score', function () {
+    game.findBonusRoundPlayerIndex()
+    expect(game.bonusRoundPlayerIndex).to.equal(0);
+  })
 });
