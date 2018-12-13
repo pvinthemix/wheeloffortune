@@ -69,6 +69,25 @@ let domUpdates = {
     this.showPlayerScore();
     this.guessVowelInput.value = '';
   },
+  
+  handleConsonantGuessed() {
+    event.preventDefault();
+    let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
+    let correctGuess = game.correctGuess(guessLetterInput.toUpperCase());
+    if (correctGuess) {
+      this.guessMessage.innerText = '- CORRECT ANSWER! -';
+    } else {
+      this.guessMessage.innerText = '- Sorry, incorrect answer -';
+    }
+    if (this.vowels.includes(guessLetterInput)) {
+      this.guessMessage.innerText = '- Please enter a CONSONANT -';
+    } else {
+      this.revealLetters(correctGuess, guessLetterInput);
+      this.greyOut(guessLetterInput);
+      game.handleConsonantGuessed();
+      this.showPlayerScore();
+    }
+  },
 
   handleVowelGuessed() {
     const guessVowelInput = this.guessVowelInput.value.toLowerCase().trim();
@@ -207,25 +226,6 @@ let domUpdates = {
     [...this.allLettersList].forEach((letter) => {
       letter.classList.remove('green-font');
     })
-  },
- 
-  handleConsonantGuessed() {
-    event.preventDefault();
-    let guessLetterInput = this.consonantLetterInput.value.toLowerCase().trim();
-    let correctGuess = game.correctGuess(guessLetterInput.toUpperCase());
-    if (correctGuess) {
-      this.guessMessage.innerText = '- CORRECT ANSWER! -';
-    } else {
-      this.guessMessage.innerText = '- Sorry, incorrect answer -';
-    }
-    if (this.vowels.includes(guessLetterInput)) {
-      this.guessMessage.innerText = '- Please enter a CONSONANT -';
-    } else {
-      this.revealLetters(correctGuess, guessLetterInput);
-      this.greyOut(guessLetterInput);
-      game.handleConsonantGuessed();
-      this.showPlayerScore();
-    }
   },
 
   revealLetters(correctGuess, letter) {

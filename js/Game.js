@@ -89,7 +89,7 @@ class Game {
     this.currentPlayer = this.players[this.turn]
     domUpdates.showPlayersTurn();
   }
-  
+
   changeRound() {
     this.round++;
     this.players[0].score = 0;
@@ -135,12 +135,10 @@ class Game {
     this.changeTurn(); 
   }
   
-  
   findBonusRoundPlayerIndex() {
     const highScore = Math.max(...this.players.map(player => {
       return player.grandTotal;
     }));
-    
     this.bonusRoundPlayerIndex = this.players.findIndex((player => {
       return player.grandTotal === highScore;
     }));
