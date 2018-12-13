@@ -38,8 +38,6 @@ We took as much advantage of planning time as we could, working from the wirefra
 ### Link to Retro Log:
 [Retro Log](https://docs.google.com/document/d/1VIxN-ZS5nTbBKPsi9kkiQqgU-bOW4-ZF0-zh8nLCzmo/edit?usp=sharing)
 
-## Future Development and Extensions Notes:
-
 
 ## Original Assignment
 [Wheel of !Fortune, Mod 2 at the Turing School of Software and Design](http://frontend.turing.io/projects/wheel-of-fortune.html)
