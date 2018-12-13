@@ -177,8 +177,6 @@ let domUpdates = {
 
   showCurrentPuzzle() {
     console.log(game.getCurrentPuzzle().currentPuzzle.correct_answer)
-    
-
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     splitAnswerArray.forEach((letter, index) => {
       if (letter === ' ') {
