@@ -8,6 +8,7 @@ class Game {
     this.turn = 0;
     this.currentPlayer = this.players[this.turn];
     this.guessedLetters = [];
+    this.bonusRoundPlayerIndex = null;
   }
 
   resetGame() {
@@ -93,7 +94,8 @@ class Game {
     domUpdates.showCurrentPuzzle();
     if (this.round === 4) {
       this.bonusRound = true;
-      const bonusWheel = new BonusWheel();
+      this.findBonusRoundPlayerIndex();
+      this.generateWheel();
     }
     domUpdates.showRoundNumber();
     if (this.round === 5) {
@@ -101,6 +103,16 @@ class Game {
       this.quitGame();
     }
   }
+
+  findBonusRoundPlayerIndex() {
+    const highScore = Math.max(...this.players.map(player => {
+      return player.grandTotal;
+     }));
+     
+     this.bonusRoundPlayerIndex = this.players.findIndex((player => {
+      return player.grandTotal === highScore;
+     }));
+    }
 
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
@@ -128,13 +140,24 @@ class Game {
     if (this.turn === this.players.length) {
       this.turn = 0;
     }
+    if (this.round === 4) {
+      this.turn = this.bonusRoundPlayerIndex;
+    }
     this.currentPlayer = this.players[this.turn]
-    domUpdates.showPlayersTurn();;
+    domUpdates.showPlayersTurn();
   }
 
   generateWheel() {
     const wheelOne = new Wheel();
+    if (this.round === 4) {
+      debugger
+      const bonusWheel = new BonusWheel();
+      game.wheel = [bonusWheel.spinValues];
+      wheel.currentSpinValue = game.wheel[0];
+      // domUpdates.showSpinValue();
+    } else {
     return [wheelOne]
+    }
   }
 
   generateFivePuzzles() {
