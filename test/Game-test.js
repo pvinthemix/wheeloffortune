@@ -1,16 +1,34 @@
-// const spies = require('chai-spies');
+const spies = require('chai-spies');
 const chai = require('chai');
 const expect = chai.expect;
-// chai.use(spies);
+chai.use(spies);
 const Game = require('../js/Game.js');
 
 global.Player = require('../js/Player.js');
 global.Puzzle = require('../js/Puzzle.js');
 global.Wheel = require('../js/Wheel.js');
 global.data = require('../js/dataset.js');
-// global.domUpdates = require('../js/Domupdates.js')
+global.document = {
+  querySelector: () => { 
+    return {
+      addEventListener: () => { 'this is crazy '}
+    }
+  },
+  getElementsByClassName: () => { 'bye'},
+};
+global.domUpdates = require('../js/Domupdates.js')
 
 describe('Game', function () {
+  
+  beforeEach(() => {
+    chai.spy.on(global.domUpdates, 'showPlayersTurn', () => true);
+
+  });
+
+  afterEach(() => {
+    chai.spy.restore(global.domUpdates)
+  })
+
   it('should have 3 players', function () {
     let game = new Game('Terry', 'Jean', 'Blake');
     const expected = [
@@ -33,6 +51,7 @@ describe('Game', function () {
     expect(game.players).to.deep.equal(expected);
     expect(game.players.length).to.equal(3);
     expect(game.players[0]).to.be.an.instanceof(Player);
+
   });
 
   it('should start on round 1', function () {
@@ -59,13 +78,14 @@ describe('Game', function () {
     }
     expect(game.currentPlayer).to.deep.equal(expectedPlayer1);
     expect(game.currentPlayer).to.be.an.instanceof(Player);
-
+    
     game.changeTurn();
     const expectedPlayer2 = {
       name: "John",
       grandTotal: 0,
       score: 0
     }
+    expect(domUpdates.showPlayersTurn).to.have.been.called(1)
     expect(game.currentPlayer).to.deep.equal(expectedPlayer2);
   });
 
