@@ -2,7 +2,7 @@ class BonusWheel extends Wheel {
   constructor() {
     super();
     this.bonusPlayer = null;
-    this.spinValues = this.generateSpinValues(500);
+    this.spinValues = this.filterOutNotNumbers(this.generateSpinValues(500));
     this.currentSpinValue = this.generateCurrentSpinValue();
   }
 
@@ -22,12 +22,19 @@ class BonusWheel extends Wheel {
 //   }
 
   generateCurrentSpinValue() {
-      debugger
-    const randomIndex = Math.floor(Math.random() * 6);
+    const randomIndex = Math.floor(Math.random() * this.spinValues.length);
     this.currentSpinValue = this.spinValues[randomIndex];
-    return this.currentSpinValue
+    return this.currentSpinValue;
+  }
+
+  filterOutNotNumbers(collection) {
+    return collection.filter((value) => {
+        return value > 1;
+    })  
   }
 }
+
+
 
 if (typeof module !== 'undefined') {
   module.exports = BonusWheel;

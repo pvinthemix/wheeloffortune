@@ -160,7 +160,11 @@ let domUpdates = {
     wheel = new Wheel();
     wheel.generateCurrentSpinValue();
     const spinValue = document.querySelector('.current-spin-value');
-    spinValue.innerText = wheel.currentSpinValue;
+    if(game.round === 4) {
+      spinValue.innerText = game.bonusWheel.currentSpinValue;
+    } else {
+      spinValue.innerText = wheel.currentSpinValue;
+    }
     wheel.checkForBankrupt();
     wheel.checkForLoseTurn();
   },
