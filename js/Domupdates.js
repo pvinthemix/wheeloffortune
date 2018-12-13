@@ -19,6 +19,7 @@ let domUpdates = {
   greenPuzzleBoxes: document.getElementsByClassName('puzzle-box'),
   allLettersList: document.getElementsByClassName('letter'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
+  bonusRoundHints: ['R', 'S', 'T', 'L', 'N', 'E'],
 
   startGame() {
     this.startScreen.classList.add('hidden');
@@ -176,7 +177,7 @@ let domUpdates = {
     puzzleCategoryOutput.innerText = roundPuzzleCategory;
   },
 
-  showCurrentPuzzle() {
+  showCurrentPuzzle(bonusRound) {
     console.log(game.getCurrentPuzzle().currentPuzzle.correct_answer)
     let splitAnswerArray = game.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase().split('');
     splitAnswerArray.forEach((letter, index) => {
@@ -185,7 +186,10 @@ let domUpdates = {
         this.greenPuzzleBoxes[index].classList.add('green-background')
       } else if (letter === '-' || letter === '&' || letter === '\'') {
         this.greenPuzzleBoxes[index].classList.add('orange-text');
-      } 
+      } else if (bonusRound && this.bonusRoundHints.includes(letter)) {
+        this.greenPuzzleBoxes[index].classList.add('orange-text');
+        this.greyOut(letter);
+      }
       this.greenPuzzleBoxes[index].innerText = letter;
       this.greenPuzzleBoxes[index].classList.add('white-background');
     }) 
@@ -236,7 +240,7 @@ let domUpdates = {
   },
 
   greyOut(letter) {
-    document.querySelector(`.letter-${letter}`).classList.add('green-font');
+    document.querySelector(`.letter-${letter.toLowerCase()}`).classList.add('green-font');
   },
 };
 

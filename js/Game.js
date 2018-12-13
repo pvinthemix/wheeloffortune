@@ -97,7 +97,6 @@ class Game {
     domUpdates.showPlayerScore();
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
-    domUpdates.showCurrentPuzzle();
     this.guessedLetters = [];
     domUpdates.resetGuessedLetters();
     if (this.round === 4) {
@@ -110,6 +109,7 @@ class Game {
       this.round = 0;
       this.quitGame();
     }
+    domUpdates.showCurrentPuzzle(this.bonusRound);
   }
 
   findBonusRoundPlayerIndex() {
