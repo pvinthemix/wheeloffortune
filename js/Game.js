@@ -4,6 +4,7 @@ class Game {
     this.round = 0;
     this.fivePuzzles = this.generateFivePuzzles();
     this.wheel = this.generateWheel();
+    this.bonusWheel = this.generateBonusWheel();
     this.bonusRound = false;
     this.turn = 0;
     this.currentPlayer = this.players[this.turn];
@@ -150,14 +151,15 @@ class Game {
   generateWheel() {
     const wheelOne = new Wheel();
     if (this.round === 4) {
-      debugger
       const bonusWheel = new BonusWheel();
-      game.wheel = [bonusWheel.spinValues];
-      wheel.currentSpinValue = game.wheel[0];
-      // domUpdates.showSpinValue();
+      // domUpdates.showSpinValue(bonusWheel.currentSpinValue);
     } else {
     return [wheelOne]
     }
+  }
+
+  generateBonusWheel() {
+    return new BonusWheel();
   }
 
   generateFivePuzzles() {
