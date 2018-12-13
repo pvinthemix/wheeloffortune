@@ -4,12 +4,16 @@ class Wheel {
     this.currentSpinValue = this.generateCurrentSpinValue();
   }
 
-  generateSpinValues() {
+  generateSpinValues(multiplier) {
     let wheelValues = data.wheel;
     let newWheelValues = [];
     for (let i = 0; i < 6; i++) {
       let randomSpinValue = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
-      newWheelValues.push(randomSpinValue)
+      if(multiplier){
+        newWheelValues.push(randomSpinValue * (multiplier))
+      } else {
+        newWheelValues.push(randomSpinValue)
+      }
     }
     return newWheelValues;
   }
