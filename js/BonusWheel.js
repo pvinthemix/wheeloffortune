@@ -14,7 +14,7 @@ class BonusWheel extends Wheel {
 
   filterOutNotNumbers(collection) {
     return collection.filter((value) => {
-        return value > 1;
+      return value > 1;
     })  
   }
 }

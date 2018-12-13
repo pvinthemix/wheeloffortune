@@ -1,8 +1,6 @@
 let game;
 let wheel;
 
-
-// domUpdates Object
 let domUpdates = {
   player1Name: document.querySelector('.player1-name'),
   player2Name: document.querySelector('.player2-name'),
@@ -39,7 +37,7 @@ let domUpdates = {
     this.solvePuzzleScreen.classList.add('hidden');
     this.startScreen.classList.remove('hidden');
     let letter = document.getElementsByClassName('letter');
-    for(let i=0; i<letter.length; i++) {
+    for (let i = 0; i < letter.length; i++) {
       letter[i].classList.remove('green-font');
     }
   },
@@ -162,7 +160,7 @@ let domUpdates = {
     wheel = new Wheel();
     wheel.generateCurrentSpinValue();
     const spinValue = document.querySelector('.current-spin-value');
-    if(game.round === 4) {
+    if (game.round === 4) {
       spinValue.innerText = game.bonusWheel.currentSpinValue;
     } else {
       spinValue.innerText = wheel.currentSpinValue;
@@ -245,7 +243,6 @@ let domUpdates = {
   },
 };
 
-// *Event Listeners*
 document.querySelector('.reset-game-btn').addEventListener('click', domUpdates.resetGame.bind(domUpdates));
 document.querySelector('.quit-game-btn').addEventListener('click', domUpdates.quitGame.bind(domUpdates));
 document.querySelector('.wheel-btn').addEventListener('click', domUpdates.showSpinValue.bind(domUpdates));

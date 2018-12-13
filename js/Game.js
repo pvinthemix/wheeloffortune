@@ -13,7 +13,6 @@ class Game {
   }
 
   resetGame() {
-    // keeps player names
     this.round = 0;
     this.bonusRound = false;
     this.turn = 0;
@@ -115,12 +114,12 @@ class Game {
   findBonusRoundPlayerIndex() {
     const highScore = Math.max(...this.players.map(player => {
       return player.grandTotal;
-     }));
+    }));
      
-     this.bonusRoundPlayerIndex = this.players.findIndex((player => {
+    this.bonusRoundPlayerIndex = this.players.findIndex((player => {
       return player.grandTotal === highScore;
-     }));
-    }
+    }));
+  }
 
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
@@ -137,7 +136,7 @@ class Game {
 
   guessPuzzleAnswer() {
     const puzzleGuessInput = document.querySelector('.solvepuzzle-guess-input').value.toUpperCase();
-    if (puzzleGuessInput == this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
+    if (puzzleGuessInput === this.getCurrentPuzzle().currentPuzzle.correct_answer.toUpperCase()) {
       this.players[this.turn].grandTotal += this.players[this.turn].score;
       this.changeRound(); 
     }
@@ -159,9 +158,8 @@ class Game {
     const wheelOne = new Wheel();
     if (this.round === 4) {
       const bonusWheel = new BonusWheel();
-      // domUpdates.showSpinValue(bonusWheel.currentSpinValue);
     } else {
-    return [wheelOne]
+      return [wheelOne]
     }
   }
 

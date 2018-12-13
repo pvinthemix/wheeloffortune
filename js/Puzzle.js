@@ -27,10 +27,6 @@ class Puzzle {
     return randomPuzzle;
   }
 
-  generateBonusPuzzle() {
-      
-  }
-
   checkAnswer(submitedAnswer) {
     return this.currentPuzzle.correct_answer === submitedAnswer; 
   }

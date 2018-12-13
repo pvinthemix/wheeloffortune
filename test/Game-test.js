@@ -11,10 +11,14 @@ global.data = require('../js/dataset.js');
 global.document = {
   querySelector: () => { 
     return {
-      addEventListener: () => { 'this is crazy '}
+      addEventListener: () => { 
+        'this is crazy '
+      }
     }
   },
-  getElementsByClassName: () => { 'bye'},
+  getElementsByClassName: () => {
+    'bye'
+  },
 };
 global.domUpdates = require('../js/Domupdates.js')
 
@@ -69,7 +73,7 @@ describe('Game', function () {
     expect(game.turn).to.equal(0);
   });
 
-   it('should be the turn of the player whose playerIndex it is', function () {
+  it('should be the turn of the player whose playerIndex it is', function () {
     let game = new Game("Brian", "John");
     const expectedPlayer1 = {
       name: "Brian",
