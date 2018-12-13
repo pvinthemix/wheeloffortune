@@ -9,7 +9,7 @@ class Wheel {
     let newWheelValues = [];
     for (let i = 0; i < 6; i++) {
       let randomSpinValue = wheelValues[Math.floor(Math.random() * (data.wheel).length)];
-      if(multiplier){
+      if (multiplier) {
         newWheelValues.push(randomSpinValue * (multiplier))
       } else {
         newWheelValues.push(randomSpinValue)

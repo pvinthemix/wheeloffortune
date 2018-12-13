@@ -1,12 +1,27 @@
+const spies = require('chai-spies');
 const chai = require('chai');
 const expect = chai.expect;
+chai.use(spies);
 const Puzzle = require('../js/Puzzle.js');
 
+
+
 describe('Puzzle', function () {
+
+  beforeEach(() => {
+    chai.spy.on(global.domUpdates, 'showPuzzleCategory', () => true);
+
+  })
+
+  afterEach(() => {
+    chai.spy.restore(global.domUpdates)
+  })
+
   it('should check to see if the puzzle has been completed', function () {
-    var puzzle = new Puzzle();
+    var puzzle = new Puzzle(1);
     expect(puzzle.puzzleCompleted).to.equal(false);
   });
+  
 
   it('should assign a puzzle randomly upon instantiation', function() {
     var puzzle = new Puzzle(1);

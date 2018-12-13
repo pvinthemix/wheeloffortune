@@ -107,12 +107,12 @@ class Game {
   findBonusRoundPlayerIndex() {
     const highScore = Math.max(...this.players.map(player => {
       return player.grandTotal;
-     }));
+    }));
      
-     this.bonusRoundPlayerIndex = this.players.findIndex((player => {
+    this.bonusRoundPlayerIndex = this.players.findIndex((player => {
       return player.grandTotal === highScore;
-     }));
-    }
+    }));
+  }
 
   isPuzzleFinished() {
     let numberOfMatchedLetters = this.getCurrentPuzzle().answer.reduce((sum, currentLetter) => {
@@ -156,7 +156,7 @@ class Game {
       wheel.currentSpinValue = game.wheel[0];
       // domUpdates.showSpinValue();
     } else {
-    return [wheelOne]
+      return [wheelOne]
     }
   }
 
