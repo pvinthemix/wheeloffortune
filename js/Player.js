@@ -6,6 +6,9 @@ class Player {
   }
 
   increaseCurrentPlayerScore() {
+    if (game.round === 4) {
+      this.score += game.bonusWheel.currentSpinValue;
+    }
     if (wheel.currentSpinValue === 'BANKRUPT') {
       this.score = 0;
     } else {
