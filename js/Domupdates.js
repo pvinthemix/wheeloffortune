@@ -66,7 +66,6 @@ let domUpdates = {
     event.preventDefault();
     this.buyVowelScreen.classList.add('hidden');
     this.handleVowelGuessed();
-    game.handleVowelGuessed();
     this.showPlayerScore();
     this.guessVowelInput.value = '';
   },
@@ -82,6 +81,7 @@ let domUpdates = {
     if (this.vowels.includes(guessVowelInput)) {
       this.greyOut(guessVowelInput);
       this.revealLetters(correctGuess, guessVowelInput);
+      game.handleVowelGuessed();
     } else {
       this.guessMessage.innerText = '- Please enter a VOWEL -';
     }
