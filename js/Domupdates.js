@@ -17,6 +17,7 @@ let domUpdates = {
   consonantLetterInput: document.querySelector('.consonant-guess-input'),
   guessMessage: document.querySelector('.guess-message'),
   greenPuzzleBoxes: document.getElementsByClassName('puzzle-box'),
+  allLettersList: document.getElementsByClassName('letter'),
   vowels: ['a', 'e', 'i', 'o', 'u'],
 
   startGame() {
@@ -100,9 +101,9 @@ let domUpdates = {
   },
 
   populatePlayerNames() {
-    this.player1Name.innerText = this.capitalizeFirstLetter(this.player1Input.value);
-    this.player2Name.innerText = this.capitalizeFirstLetter(this.player2Input.value);
-    this.player3Name.innerText = this.capitalizeFirstLetter(this.player3Input.value);
+    this.player1Name.innerText = this.capitalizeFirstLetter(this.player1Input.value || 'Player 1');
+    this.player2Name.innerText = this.capitalizeFirstLetter(this.player2Input.value || 'Player 2');
+    this.player3Name.innerText = this.capitalizeFirstLetter(this.player3Input.value || 'Player 3');
   },
 
   capitalizeFirstLetter(input) {
@@ -196,6 +197,12 @@ let domUpdates = {
       box.classList.remove('white-background');
       box.classList.remove('orange-text');
       box.innerText = '';
+    })
+  },
+
+  resetGuessedLetters() {
+    [...this.allLettersList].forEach((letter) => {
+      letter.classList.remove('green-font');
     })
   },
  
