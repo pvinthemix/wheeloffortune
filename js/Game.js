@@ -25,7 +25,10 @@ class Game {
     this.players[2].score = 0;
     domUpdates.showPlayerScore();
     domUpdates.showGrandTotalScore();
+    domUpdates.resetDefaultGreenBoxes();
     domUpdates.showRoundNumber();
+    domUpdates.resetGuessedLetters();
+    domUpdates.showCurrentPuzzle();
     this.guessedLetters = [];
     this.wheel[0].currentSpinValue = 0;
   }
@@ -43,8 +46,10 @@ class Game {
     this.players[1].score = 0;
     this.players[2].score = 0;
     domUpdates.showPlayerScore();
+    domUpdates.resetGuessedLetters();
     domUpdates.showRoundNumber();
     domUpdates.showGrandTotalScore();
+    domUpdates.resetDefaultGreenBoxes();
   }
 
   correctGuess(letter) {
@@ -93,6 +98,8 @@ class Game {
     domUpdates.resetDefaultGreenBoxes();
     domUpdates.showGrandTotalScore();
     domUpdates.showCurrentPuzzle();
+    this.guessedLetters = [];
+    domUpdates.resetGuessedLetters();
     if (this.round === 4) {
       this.bonusRound = true;
       this.findBonusRoundPlayerIndex();
