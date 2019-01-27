@@ -110,6 +110,7 @@ class Game {
       this.round = 0;
       this.quitGame();
     }
+    domUpdates.showPuzzleCategory();
     domUpdates.showCurrentPuzzle(this.bonusRound);
   }
   

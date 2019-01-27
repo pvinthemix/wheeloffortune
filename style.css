@@ -157,11 +157,11 @@
   animation: glowing 1500ms infinite;
 }
 
-@keyframes glowing {
+/* @keyframes glowing {
   0% { box-shadow: 0 0 3px rgb(222, 190, 130) }
   50% { box-shadow: 0 0 30px orange }
   100% { box-shadow: 0 0 3px rgb(250, 205, 121) }
-}
+} */
 
 .start-button:hover {
   background-color: #289477;
